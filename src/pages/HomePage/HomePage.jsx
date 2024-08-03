@@ -5,6 +5,7 @@ import {
   Header,
   Navigation,
   NavLink,
+  NavLinkRegistr,
   Content,
   Title,
   SubTitle,
@@ -19,8 +20,11 @@ import {
   LogoText,
   Registration,
   TitleContent,
+  RegButton,
+  LoginImage,
 } from "./HomePage.styled";
 import Logo from "../../assets/svg/ukraine.svg";
+import LoginImg from "../../assets/svg/log-in-01.svg";
 import EmojiImage from "../../assets/svg/blockyellow.svg";
 
 const HomePage = () => {
@@ -36,8 +40,9 @@ const HomePage = () => {
           <NavLink href="#">Teachers</NavLink>
         </Navigation>
         <Registration>
-          <NavLink href="#">Log in</NavLink>
-          <NavLink href="#">Registration</NavLink>
+          <LoginImage src={LoginImg} alt="Login icon" />
+          <NavLinkRegistr href="#">Log in</NavLinkRegistr>
+          <RegButton>Registration</RegButton>
         </Registration>
       </Header>
 

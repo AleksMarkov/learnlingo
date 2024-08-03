@@ -6,7 +6,7 @@ export const HomePageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   background-color: #ffffff;
 `;
 
@@ -18,30 +18,88 @@ export const Header = styled.header`
   width: 1184px;
   height: 48px;
   border: none;
-  //   background-color: #ffffff;
-  //   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between logo and text */
+`;
+
+export const LogoImage = styled.img`
+  width: 28px; /* Set the desired width */
+  height: 28px; /* Set the desired height */
+`;
+
+export const LogoText = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--text-color);
+  margin: 0;
 `;
 
 export const Navigation = styled.nav`
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 28px;
+  padding-left: 122px;
 `;
 
 export const Registration = styled.nav`
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 8px;
 `;
 
 export const NavLink = styled.a`
-  text-decoration: none;
-  color: ${({ primary }) => (primary ? "#ffffff" : "#000000")};
-  background-color: ${({ primary }) => (primary ? "#000000" : "transparent")};
-  padding: ${({ primary }) => (primary ? "10px 20px" : "0")};
-  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const NavLinkRegistr = styled.a`
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const LoginImage = styled.img`
+  width: 20px; /* Set the desired width */
+  height: 20px; /* Set the desired height */
+`;
+
+export const RegButton = styled.button`
+  //   gap: 8px;
+  width: 166px;
+  height: 48px;
+  padding: 14px 39px 14px 39px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: #ffffff;
+  background-color: #121417;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${({ primary }) => (primary ? "#333333" : "#f0f0f0")};
+    background-color: #505458;
   }
 `;
 
@@ -73,11 +131,15 @@ export const Title = styled.h1`
   font-size: 48px;
   font-weight: 500;
   line-height: 56px;
+  letter-spacing: -0.02em;
+  text-align: left;
   margin-top: 98px;
   margin-left: 64px;
   span {
     font-style: italic;
     font-weight: 400;
+    letter-spacing: -0.02em;
+    text-align: left;
     background-color: #fbe9ba;
     border-radius: 10px;
   }
@@ -90,6 +152,8 @@ export const SubTitle = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+  letter-spacing: -0.02em;
+  text-align: left;
   margin-top: 32px;
   margin-left: 64px;
 `;
@@ -141,7 +205,7 @@ export const StatBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 14px;
+  gap: 16px;
   text-align: center;
   height: 36px;
 `;
@@ -160,22 +224,4 @@ export const StatDescription = styled.div`
   line-height: 18px;
   letter-spacing: -0.02em;
   text-align: left;
-`;
-
-export const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between logo and text */
-`;
-
-export const LogoImage = styled.img`
-  width: 28px; /* Set the desired width */
-  height: 28px; /* Set the desired height */
-`;
-
-export const LogoText = styled.p`
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--text-color);
-  margin: 0;
 `;
