@@ -1,85 +1,181 @@
-import styled from 'styled-components';
+// HomePage.styled.jsx
+import styled from "styled-components";
 
-export const Home = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: #f9f9f9;
-`;
-
-export const ButtonContainer = styled.div`
+export const HomePageContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #e44848;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
 `;
 
-export const ButtonLeft = styled.button`
-  padding: 20px 40px;
-  background-color: #e44848;
-  color: #f9f9f9;
-  border: 4px solid;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  cursor: pointer;
-  font-size: 40px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
+export const Header = styled.header`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1184px;
+  height: 48px;
+  border: none;
+  //   background-color: #ffffff;
+  //   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const Navigation = styled.nav`
+  display: flex;
+  gap: 20px;
+`;
+
+export const Registration = styled.nav`
+  display: flex;
+  gap: 20px;
+`;
+
+export const NavLink = styled.a`
+  text-decoration: none;
+  color: ${({ primary }) => (primary ? "#ffffff" : "#000000")};
+  background-color: ${({ primary }) => (primary ? "#000000" : "transparent")};
+  padding: ${({ primary }) => (primary ? "10px 20px" : "0")};
+  border-radius: 5px;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: #f9f9f9;
-    color: #e44848;
-  }
-
-  @media (max-width: 1440px) {
-    font-size: 32px;
-    padding: 16px 32px;
-  }
-
-  @media (max-width: 779px) {
-    font-size: 24px;
-    padding: 12px 24px;
-  }
-
-  @media (max-width: 369px) {
-    font-size: 18px;
-    padding: 8px 16px;
+    background-color: ${({ primary }) => (primary ? "#333333" : "#f0f0f0")};
   }
 `;
 
-export const ButtonRight = styled.button`
-  padding: 20px 40px;
-  background-color: #e44848;
-  color: white;
-  border: solid;
-  border: 4px solid;
-  border-top: none;
-  border-bottom: none;
-  cursor: pointer;
-  font-size: 40px;
+export const Content = styled.div`
+  display: flex;
+  //   justify-content: center
+  flex-direction: row;
+  //   align-items: center;
+  //   max-width: 1200px;
+  margin: 20px 64px 24px;
+  gap: 24px;
+`;
+
+export const TitleContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  width: 720px;
+  height: 530px;
+  border-radius: 30px;
+  background-color: #f8f8f8;
+`;
+
+export const Title = styled.h1`
+  display: block;
+  width: 548px;
+  height: 112px;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 56px;
+  margin-top: 98px;
+  margin-left: 64px;
+  span {
+    font-style: italic;
+    font-weight: 400;
+    background-color: #fbe9ba;
+    border-radius: 10px;
+  }
+`;
+
+export const SubTitle = styled.p`
+  display: block;
+  width: 471px;
+  height: 66px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 32px;
+  margin-left: 64px;
+`;
+
+export const GetButton = styled.button`
+  width: 267px;
+  height: 60px;
+  margin-top: 64px;
+  margin-left: 64px;
+  border-radius: 12px;
+  font-size: 18px;
   font-weight: 700;
-  transition: background-color 0.3s ease;
+  line-height: 28px;
+  color: #121417;
+  background-color: #f4c550;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: #f9f9f9;
-    color: #e44848;
+    background-color: #ffdc86;
   }
+`;
 
-  @media (max-width: 1440px) {
-    font-size: 32px;
-    padding: 16px 32px;
-  }
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 568px;
+  height: 530px;
+  border-radius: 30px;
+  background-color: #f8f8f8;
+`;
 
-  @media (max-width: 779px) {
-    font-size: 24px;
-    padding: 12px 24px;
-  }
+export const StatsContainer = styled.div`
+  box-sizing: border-box;
+  width: 1312px;
+  height: 116px;
+  border-radius: 30px;
+  border: 1.5px dashed #f4c550;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+`;
 
-  @media (max-width: 369px) {
-    font-size: 18px;
-    padding: 8px 16px;
-  }
+export const StatBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 14px;
+  text-align: center;
+  height: 36px;
+`;
+
+export const StatNumber = styled.div`
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  text-align: left;
+`;
+
+export const StatDescription = styled.div`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: left;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between logo and text */
+`;
+
+export const LogoImage = styled.img`
+  width: 28px; /* Set the desired width */
+  height: 28px; /* Set the desired height */
+`;
+
+export const LogoText = styled.p`
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
 `;

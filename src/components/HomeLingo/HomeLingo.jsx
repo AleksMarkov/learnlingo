@@ -1,5 +1,4 @@
-// import Image from 'next/image';
-import heroImage from '../../assets/svg/imageLingo.svg'; // Replace with your image path
+import heroImage from "../../assets/svg/imageLingo.svg";
 
 function HomeLingo() {
   return (

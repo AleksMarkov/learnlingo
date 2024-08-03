@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
-import RobotoRegular from './assets/fonts/Roboto/Roboto-Regular.ttf';
-import RobotoMedium from './assets/fonts/Roboto/Roboto-Medium.ttf';
-import RobotoItalic from './assets/fonts/Roboto/Roboto-Italic.ttf';
-import RobotoBold from './assets/fonts/Roboto/Roboto-Bold.ttf';
+import { createGlobalStyle } from "styled-components";
+import RobotoRegular from "./assets/fonts/Roboto/Roboto-Regular.ttf";
+import RobotoMedium from "./assets/fonts/Roboto/Roboto-Medium.ttf";
+import RobotoItalic from "./assets/fonts/Roboto/Roboto-Italic.ttf";
+import RobotoBold from "./assets/fonts/Roboto/Roboto-Bold.ttf";
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -11,7 +11,11 @@ const GlobalStyles = createGlobalStyle`
 	--inputs: #f7f7f7;
 	--block-features: #f2f4f7;
 	--rating: #ffc531;
-	--text: var(--text);
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #fbe9ba;
+  --btn-icon-bg: #f4c550;
+  --text-color: #121417;
 }
 
 

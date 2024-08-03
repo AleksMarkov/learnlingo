@@ -1,8 +1,8 @@
-import React, { Suspense, lazy } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Loader from './Loader/Loader';
+import React, { Suspense, lazy } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Loader from "./Loader/Loader";
 
-const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 // const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
 // const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
 
