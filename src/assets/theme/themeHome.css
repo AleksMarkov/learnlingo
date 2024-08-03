@@ -1,0 +1,47 @@
+[data-theme='prototype'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #fbe9ba;
+  --btn-icon-bg: #f4c550;
+  --text-color: #121417;
+}
+
+[data-theme='yellow'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #fbe9ba;
+  --btn-icon-bg: #f4c550;
+  --text-color: #121417;
+}
+
+[data-theme='green'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #cbded3;
+  --btn-icon-bg: #9fbaae;
+  --text-color: #121417;
+}
+
+[data-theme='blue'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #bfd6ea;
+  --btn-icon-bg: #9fb7ce;
+  --text-color: #121417;
+}
+
+[data-theme='brown'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #f2c0bd;
+  --btn-icon-bg: #e0a39a;
+  --text-color: #121417;
+}
+
+[data-theme='pink'] {
+  --primary-bg-color: #ffffff;
+  --additional-bg-color: #f8f8f8;
+  --accent-bg-color: #f4c8ba;
+  --btn-icon-bg: #f0aa8d;
+  --text-color: #121417;
+}
