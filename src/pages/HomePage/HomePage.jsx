@@ -1,5 +1,5 @@
 // HomePage.jsx
-import React from "react";
+import React, { useState } from "react";
 import {
   HomePageContainer,
   Header,
@@ -26,8 +26,15 @@ import {
 import Logo from "../../assets/svg/ukraine.svg";
 import LoginImg from "../../assets/svg/log-in-01.svg";
 import EmojiImage from "../../assets/svg/blockyellow.svg";
+import Theme from "components/Theme/Theme";
 
 const HomePage = () => {
+  const [showTheme, setShowTheme] = useState(false);
+
+  const handleGetStarted = () => {
+    setShowTheme(true);
+  };
+
   return (
     <HomePageContainer>
       <Header>
@@ -38,6 +45,9 @@ const HomePage = () => {
         <Navigation>
           <NavLink href="#">Home</NavLink>
           <NavLink href="#">Teachers</NavLink>
+          <NavLink href="#" onClick={handleGetStarted}>
+            Theme
+          </NavLink>
         </Navigation>
         <Registration>
           <LoginImage src={LoginImg} alt="Login icon" />
@@ -57,6 +67,7 @@ const HomePage = () => {
             highly qualified and experienced tutors.
           </SubTitle>
           <GetButton>Get started</GetButton>
+          {showTheme && <Theme />}
         </TitleContent>
         <ImageContainer>
           <img src={EmojiImage} alt="Emoji" />

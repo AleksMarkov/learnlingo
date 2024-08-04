@@ -45,7 +45,7 @@ export const Navigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 28px;
-  padding-left: 122px;
+  //   padding-left: 122px;
 `;
 
 export const Registration = styled.nav`
