@@ -7,7 +7,6 @@ import { Opacity, Modalcont, ModalClose } from "./Modal.styled";
 const Modal = ({ children, width, height, onClose, top, left }) => {
   const modalRoot = document.getElementById("modal-root");
 
-  // Effect for handling keypress
   useEffect(() => {
     const handleCloseKeyPress = (event) => {
       if (event.code === "Escape") {
@@ -22,9 +21,7 @@ const Modal = ({ children, width, height, onClose, top, left }) => {
     };
   }, [onClose]);
 
-  // Effect for handling outside click
   const handleOutsideClick = (event) => {
-    console.log("Outside click detected", event.target, event.currentTarget); // Debugging log
     if (event.target === event.currentTarget) {
       onClose();
     }

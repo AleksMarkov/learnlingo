@@ -6,7 +6,6 @@ export const HomePageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-family: Roboto, sans-serif;
   background-color: var(--primary-bg-color);
 `;
 
