@@ -6,16 +6,6 @@ import RobotoBold from "./assets/fonts/Roboto/Roboto-Bold.ttf";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-	--button: #e44848;
-	--main: #101828;
-	--inputs: #f7f7f7;
-	--block-features: #f2f4f7;
-	--rating: #ffc531;
-  --primary-bg-color: #ffffff;
-  --additional-bg-color: #f8f8f8;
-  --accent-bg-color: #fbe9ba;
-  --btn-icon-bg: #f4c550;
-  --text-color: #121417;
 }
 
 

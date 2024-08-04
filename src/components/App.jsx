@@ -5,7 +5,7 @@ import Loader from "./Loader/Loader";
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 // const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
 // const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
-
+document.documentElement.setAttribute("data-theme", "yellow");
 const App = () => {
   return (
     <Suspense fallback={<Loader />}>

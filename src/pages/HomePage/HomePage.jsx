@@ -31,10 +31,6 @@ import Theme from "components/Theme/Theme";
 const HomePage = () => {
   const [showTheme, setShowTheme] = useState(false);
 
-  const handleGetStarted = () => {
-    setShowTheme(true);
-  };
-
   return (
     <HomePageContainer>
       <Header>
@@ -45,7 +41,8 @@ const HomePage = () => {
         <Navigation>
           <NavLink href="#">Home</NavLink>
           <NavLink href="#">Teachers</NavLink>
-          <NavLink href="#" onClick={handleGetStarted}>
+          <NavLink href="#" onClick={() => setShowTheme(true)}>
+            {showTheme && <Theme closeMenu={() => setShowTheme(false)} />}
             Theme
           </NavLink>
         </Navigation>
@@ -67,7 +64,6 @@ const HomePage = () => {
             highly qualified and experienced tutors.
           </SubTitle>
           <GetButton>Get started</GetButton>
-          {showTheme && <Theme />}
         </TitleContent>
         <ImageContainer>
           <img src={EmojiImage} alt="Emoji" />

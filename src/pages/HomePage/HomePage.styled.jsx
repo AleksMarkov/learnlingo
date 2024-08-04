@@ -7,7 +7,7 @@ export const HomePageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: Roboto, sans-serif;
-  background-color: #ffffff;
+  background-color: var(--primary-bg-color);
 `;
 
 export const Header = styled.header`
@@ -61,7 +61,7 @@ export const NavLink = styled.a`
   text-align: left;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: var(--additional-bg-color);
   }
 `;
 
@@ -92,8 +92,8 @@ export const RegButton = styled.button`
   font-weight: 700;
   line-height: 20px;
   text-align: left;
-  color: #ffffff;
-  background-color: #121417;
+  color: var(--primary-bg-color);
+  background-color: var(--text-color);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -121,7 +121,7 @@ export const TitleContent = styled.div`
   width: 720px;
   height: 530px;
   border-radius: 30px;
-  background-color: #f8f8f8;
+  background-color: var(--additional-bg-color);
 `;
 
 export const Title = styled.h1`
@@ -140,7 +140,7 @@ export const Title = styled.h1`
     font-weight: 400;
     letter-spacing: -0.02em;
     text-align: left;
-    background-color: #fbe9ba;
+    background-color: var(--accent-bg-color);
     border-radius: 10px;
   }
 `;
@@ -167,14 +167,14 @@ export const GetButton = styled.button`
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
-  color: #121417;
-  background-color: #f4c550;
+  color: var(--text-color);
+  background-color: var(--btn-icon-bg);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #ffdc86;
+    background-color: var(--btn-hover-bg);
   }
 `;
 
@@ -185,7 +185,7 @@ export const ImageContainer = styled.div`
   width: 568px;
   height: 530px;
   border-radius: 30px;
-  background-color: #f8f8f8;
+  background-color: var(--additional-bg-color);
 `;
 
 export const StatsContainer = styled.div`
@@ -193,7 +193,7 @@ export const StatsContainer = styled.div`
   width: 1312px;
   height: 116px;
   border-radius: 30px;
-  border: 1.5px dashed #f4c550;
+  border: 1.5px dashed var(--btn-icon-bg);
   display: flex;
   justify-content: space-around;
   align-items: center;
