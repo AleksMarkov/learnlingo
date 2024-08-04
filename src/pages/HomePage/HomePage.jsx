@@ -41,7 +41,7 @@ const HomePage = () => {
         <Navigation>
           <NavLink href="#">Home</NavLink>
           <NavLink href="#">Teachers</NavLink>
-          <NavLink href="#" onClick={() => setShowTheme(true)}>
+          <NavLink onClick={() => setShowTheme(true)}>
             {showTheme && <Theme closeMenu={() => setShowTheme(false)} />}
             Theme
           </NavLink>
