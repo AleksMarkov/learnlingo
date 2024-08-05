@@ -26,8 +26,8 @@ export const LogoContainer = styled.div`
 `;
 
 export const LogoImage = styled.img`
-  width: 28px; /* Set the desired width */
-  height: 28px; /* Set the desired height */
+  width: 28px;
+  height: 28px;
 `;
 
 export const LogoText = styled.p`
@@ -44,7 +44,6 @@ export const Navigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 28px;
-  //   padding-left: 122px;
 `;
 
 export const Registration = styled.nav`
@@ -76,16 +75,10 @@ export const NavLinkRegistr = styled.a`
   }
 `;
 
-export const LoginImage = styled.img`
-  width: 20px; /* Set the desired width */
-  height: 20px; /* Set the desired height */
-`;
-
 export const RegButton = styled.button`
-  //   gap: 8px;
   width: 166px;
   height: 48px;
-  padding: 14px 39px 14px 39px;
+  padding: 14px 39px;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 700;
@@ -95,7 +88,6 @@ export const RegButton = styled.button`
   background-color: var(--text-color);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   &:hover {
     background-color: #505458;
@@ -104,10 +96,7 @@ export const RegButton = styled.button`
 
 export const Content = styled.div`
   display: flex;
-  //   justify-content: center
   flex-direction: row;
-  //   align-items: center;
-  //   max-width: 1200px;
   margin: 20px 64px 24px;
   gap: 24px;
 `;
@@ -115,8 +104,6 @@ export const Content = styled.div`
 export const TitleContent = styled.div`
   display: flex;
   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
   width: 720px;
   height: 530px;
   border-radius: 30px;
@@ -124,35 +111,27 @@ export const TitleContent = styled.div`
 `;
 
 export const Title = styled.h1`
-  display: block;
   width: 548px;
   height: 112px;
   font-size: 48px;
   font-weight: 500;
   line-height: 56px;
-  letter-spacing: -0.02em;
-  text-align: left;
   margin-top: 98px;
   margin-left: 64px;
   span {
     font-style: italic;
     font-weight: 400;
-    letter-spacing: -0.02em;
-    text-align: left;
     background-color: var(--accent-bg-color);
     border-radius: 10px;
   }
 `;
 
 export const SubTitle = styled.p`
-  display: block;
   width: 471px;
   height: 66px;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: -0.02em;
-  text-align: left;
   margin-top: 32px;
   margin-left: 64px;
 `;
@@ -170,7 +149,6 @@ export const GetButton = styled.button`
   background-color: var(--btn-icon-bg);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   &:hover {
     background-color: var(--btn-hover-bg);
@@ -188,7 +166,6 @@ export const ImageContainer = styled.div`
 `;
 
 export const StatsContainer = styled.div`
-  box-sizing: border-box;
   width: 1312px;
   height: 116px;
   border-radius: 30px;
@@ -213,14 +190,10 @@ export const StatNumber = styled.div`
   font-size: 28px;
   font-weight: 500;
   line-height: 32px;
-  letter-spacing: -0.02em;
-  text-align: left;
 `;
 
 export const StatDescription = styled.div`
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  letter-spacing: -0.02em;
-  text-align: left;
 `;

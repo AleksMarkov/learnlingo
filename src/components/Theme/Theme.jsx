@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+//Theme.jsx
+import React, { useEffect, useState } from "react";
 import ThemeStyled from "./Theme.styled";
 import Modal from "../Modal/Modal";
 
 const Theme = ({ closeMenu }) => {
   const themes = ["yellow", "green", "blue", "brown", "pink"];
+  const themescolor = ["#fbe9ba", "#cbded3", "#bfd6ea", "#f2c0bd", "#f4c8ba"];
   const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem("currentTheme") || "yellow"
   );
-
-  const menuRef = useRef(null);
 
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
@@ -25,17 +25,18 @@ const Theme = ({ closeMenu }) => {
         width={120}
         height={80}
         onClose={() => closeMenu(false)}
-        top="15%"
+        top="20%"
         left="52%"
       >
         <ThemeStyled>
-          <div className="theme-selector" ref={menuRef}>
+          <div className="theme-selector">
             <ul>
-              {themes.map((theme) => (
+              {themes.map((theme, index) => (
                 <li
                   key={theme}
                   onClick={() => handleThemeChange(theme)}
                   className={currentTheme === theme ? "active" : ""}
+                  style={{ backgroundColor: themescolor[index] }}
                 >
                   {theme}
                 </li>

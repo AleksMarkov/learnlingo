@@ -1,5 +1,5 @@
 // HomePage.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   HomePageContainer,
   Header,
@@ -21,15 +21,52 @@ import {
   Registration,
   TitleContent,
   RegButton,
-  LoginImage,
 } from "./HomePage.styled";
 import Logo from "../../assets/svg/ukraine.svg";
-import LoginImg from "../../assets/svg/log-in-01.svg";
-import EmojiImage from "../../assets/svg/blockyellow.svg";
+import EmojiYellow from "../../assets/svg/yellow.svg";
+import EmojiGreen from "../../assets/svg/green.svg";
+import EmojiBlue from "../../assets/svg/blue.svg";
+import EmojiBrown from "../../assets/svg/brown.svg";
+import EmojiPink from "../../assets/svg/pink.svg";
 import Theme from "components/Theme/Theme";
+import styled from "styled-components";
+
+// Styled SVG Component for Login Icon
+const LoginIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--btn-icon-bg);
+`;
 
 const HomePage = () => {
   const [showTheme, setShowTheme] = useState(false);
+  const currentTheme = localStorage.getItem("currentTheme");
+
+  const loginIconRef = useRef(null);
+
+  const getEmojiImage = () => {
+    switch (currentTheme) {
+      case "yellow":
+        return EmojiYellow;
+      case "green":
+        return EmojiGreen;
+      case "blue":
+        return EmojiBlue;
+      case "brown":
+        return EmojiBrown;
+      case "pink":
+        return EmojiPink;
+      default:
+        return EmojiYellow;
+    }
+  };
+
+  useEffect(() => {
+    if (loginIconRef.current) {
+      loginIconRef.current.style.stroke = "var(--btn-icon-bg)";
+    }
+  }, []);
 
   return (
     <HomePageContainer>
@@ -47,7 +84,24 @@ const HomePage = () => {
           </NavLink>
         </Navigation>
         <Registration>
-          <LoginImage src={LoginImg} alt="Login icon" />
+          <LoginIcon
+            ref={loginIconRef}
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.5 2.5H13.5C14.9001 2.5 15.6002 2.5 16.135 2.77248C16.6054 3.01217 16.9878 3.39462 17.2275 3.86502C17.5 4.3998 17.5 5.09987 17.5 6.5V13.5C17.5 14.9001 17.5 15.6002 17.2275 16.135C16.9878 16.6054 16.6054 16.9878 16.135 17.2275C15.6002 17.5 14.9001 17.5 13.5 17.5H12.5"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M8.33333 5.83325L12.5 9.99992M12.5 9.99992L8.33333 14.1666M12.5 9.99992L2.5 9.99992"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </LoginIcon>
           <NavLinkRegistr href="#">Log in</NavLinkRegistr>
           <RegButton>Registration</RegButton>
         </Registration>
@@ -66,7 +120,7 @@ const HomePage = () => {
           <GetButton>Get started</GetButton>
         </TitleContent>
         <ImageContainer>
-          <img src={EmojiImage} alt="Emoji" />
+          <img src={getEmojiImage()} alt="Emoji" />
         </ImageContainer>
       </Content>
 

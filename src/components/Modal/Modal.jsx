@@ -22,8 +22,10 @@ const Modal = ({ children, width, height, onClose, top, left }) => {
   }, [onClose]);
 
   const handleOutsideClick = (event) => {
+    onClose();
     if (event.target === event.currentTarget) {
       onClose();
+      event.stopPropagation();
     }
   };
 

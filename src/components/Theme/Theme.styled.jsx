@@ -1,4 +1,3 @@
-// Theme.jsx
 import styled from "styled-components";
 
 const ThemeStyled = styled.div`
@@ -6,24 +5,33 @@ const ThemeStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100px; /* Adjust width as needed */
-
-    // border: 1px solid #ccc;
+    width: 100px;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
 
-    select {
-      width: 100%;
-      padding: 5px;
-      border: none;
-      outline: none;
-      cursor: pointer;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
     }
-  }
-  .theme-selector ul li.active {
-    font-weight: bold;
-    border-bottom: 2px solid currentColor;
+
+    li {
+      margin: 5px 0;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: transform 0.2s, background-color 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+        background-color: lighten(0.1); // Optional lighter hover effect
+      }
+
+      &.active {
+        font-weight: bold;
+        border-bottom: 2px solid currentColor;
+      }
+    }
   }
 `;
 

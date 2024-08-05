@@ -9,7 +9,7 @@ export const Opacity = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
+  // background-color: rgba(0, 0, 0, 0.05);
   z-index: 9999;
 `;
 
@@ -22,6 +22,7 @@ export const Modalcont = styled.div`
   align-items: center;
   min-height: ${({ $Height }) => ($Height ? `${$Height}px` : "130px")};
   border-radius: 8px;
+  border: 1px solid var(--text-color);
   padding: 12px;
   color: var(--text-color);
   background: var(--additional-bg-color);
