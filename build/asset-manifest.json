@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/learnlingo/static/css/main.04b9153d.css",
+    "main.js": "/learnlingo/static/js/main.7e726588.js",
+    "static/js/296.216d10a0.chunk.js": "/learnlingo/static/js/296.216d10a0.chunk.js",
+    "static/media/blue.svg": "/learnlingo/static/media/blue.b89fe5d9f72fba42902740749c9e27a8.svg",
+    "static/media/brown.svg": "/learnlingo/static/media/brown.e6f0ca6da9a0b9eb958e667dca36a0e7.svg",
+    "static/media/green.svg": "/learnlingo/static/media/green.f4a438f9ac55f6d816775b07304e7828.svg",
+    "static/media/pink.svg": "/learnlingo/static/media/pink.24de9dd0264ce9020f4ec141b344cfc5.svg",
+    "static/media/yellow.svg": "/learnlingo/static/media/yellow.9e584226175102e80edf63e9f0756b8e.svg",
+    "static/media/Roboto-Italic.ttf": "/learnlingo/static/media/Roboto-Italic.cd47f5421512ee65fe22.ttf",
+    "static/media/Roboto-Medium.ttf": "/learnlingo/static/media/Roboto-Medium.e73e917f7bfa48666e00.ttf",
+    "static/media/Roboto-Regular.ttf": "/learnlingo/static/media/Roboto-Regular.27f62b53b93858475a7f.ttf",
+    "static/media/Roboto-Bold.ttf": "/learnlingo/static/media/Roboto-Bold.d50a80138ec4f2fb5e9f.ttf",
+    "static/media/eye-off.svg": "/learnlingo/static/media/eye-off.8866ee17a8445084c2644f76756a4fc7.svg",
+    "index.html": "/learnlingo/index.html",
+    "static/media/ukraine.svg": "/learnlingo/static/media/ukraine.d34743a6d4214a7edfd037c74ed2da93.svg",
+    "main.04b9153d.css.map": "/learnlingo/static/css/main.04b9153d.css.map",
+    "main.7e726588.js.map": "/learnlingo/static/js/main.7e726588.js.map",
+    "296.216d10a0.chunk.js.map": "/learnlingo/static/js/296.216d10a0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04b9153d.css",
+    "static/js/main.7e726588.js"
+  ]
+}
