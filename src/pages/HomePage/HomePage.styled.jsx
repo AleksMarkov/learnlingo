@@ -6,6 +6,7 @@ export const HomePageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  // font-family: "Roboto";
   background-color: var(--primary-bg-color);
 `;
 
@@ -46,7 +47,7 @@ export const Navigation = styled.nav`
   gap: 28px;
 `;
 
-export const Registration = styled.nav`
+export const Registrat = styled.nav`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -57,6 +58,7 @@ export const NavLink = styled.a`
   font-weight: 400;
   line-height: 20px;
   text-align: left;
+  color: var(--text-color);
 
   &:hover {
     background-color: var(--additional-bg-color);
@@ -70,6 +72,7 @@ export const NavLinkRegistr = styled.a`
   line-height: 20px;
   text-align: left;
   margin-right: 8px;
+  color: var(--text-color);
 
   &:hover {
     background-color: var(--additional-bg-color);
@@ -118,11 +121,17 @@ export const Title = styled.h1`
   font-size: 48px;
   font-weight: 500;
   line-height: 56px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--text-color);
   margin-top: 98px;
   margin-left: 64px;
   span {
     font-style: italic;
     font-weight: 400;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
     background-color: var(--accent-bg-color);
     border-radius: 10px;
   }
@@ -134,6 +143,9 @@ export const SubTitle = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--text-color);
   margin-top: 32px;
   margin-left: 64px;
 `;
@@ -192,10 +204,13 @@ export const StatNumber = styled.div`
   font-size: 28px;
   font-weight: 500;
   line-height: 32px;
+  color: var(--text-color);
 `;
 
 export const StatDescription = styled.div`
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
 `;

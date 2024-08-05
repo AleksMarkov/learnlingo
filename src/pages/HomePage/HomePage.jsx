@@ -18,7 +18,7 @@ import {
   LogoContainer,
   LogoImage,
   LogoText,
-  Registration,
+  Registrat,
   TitleContent,
   RegButton,
 } from "./HomePage.styled";
@@ -30,6 +30,8 @@ import EmojiBrown from "../../assets/svg/brown.svg";
 import EmojiPink from "../../assets/svg/pink.svg";
 import Theme from "components/Theme/Theme";
 import Login from "components/Login/Login";
+import Registration from "components/Registration/Registration";
+import Lesson from "components/Lesson/Lesson";
 import styled from "styled-components";
 
 // Styled SVG Component for Login Icon
@@ -43,6 +45,8 @@ const LoginIcon = styled.svg`
 const HomePage = () => {
   const [showTheme, setShowTheme] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [ShowRegistr, setShowRegistr] = useState(false);
+  const [ShowLesson, setShowLesson] = useState(false);
   const currentTheme = localStorage.getItem("currentTheme");
 
   const loginIconRef = useRef(null);
@@ -78,14 +82,17 @@ const HomePage = () => {
           <LogoText>LearnLingo</LogoText>
         </LogoContainer>
         <Navigation>
-          <NavLink href="#">Home</NavLink>
+          <NavLink onClick={() => setShowLesson(true)}>
+            {ShowLesson && <Lesson closeMenu={() => setShowLesson(false)} />}
+            Home
+          </NavLink>
           <NavLink href="#">Teachers</NavLink>
           <NavLink onClick={() => setShowTheme(true)}>
             {showTheme && <Theme closeMenu={() => setShowTheme(false)} />}
             Theme
           </NavLink>
         </Navigation>
-        <Registration>
+        <Registrat>
           <LoginIcon
             ref={loginIconRef}
             viewBox="0 0 20 20"
@@ -109,8 +116,13 @@ const HomePage = () => {
             Log in
           </NavLinkRegistr>
 
-          <RegButton>Registration</RegButton>
-        </Registration>
+          <RegButton onClick={() => setShowRegistr(true)}>
+            {ShowRegistr && (
+              <Registration closeMenu={() => setShowRegistr(false)} />
+            )}
+            Registration
+          </RegButton>
+        </Registrat>
       </Header>
 
       <Content>

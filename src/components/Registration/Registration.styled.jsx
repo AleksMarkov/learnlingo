@@ -1,5 +1,3 @@
-//Login.styled.jsx
-// Login.styled.jsx
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`
@@ -10,7 +8,7 @@ export const TitleContainer = styled.div`
   gap: 20px;
   position: absolute;
   width: 438px;
-  height: 112px;
+  height: 134px;
   left: 64px;
   top: 64px;
   background-color: var(--primary-bg-color);
@@ -33,7 +31,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const InputsContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -41,9 +39,9 @@ export const InputsContainer = styled.div`
   gap: 18px;
   position: absolute;
   width: 438px;
-  height: 126px;
+  height: 198px;
+  top: 238px;
   left: 64px;
-  top: 216px;
 
   input {
     width: 438px;
@@ -77,7 +75,7 @@ export const EyeImage = styled.img`
   height: 20px;
   position: absolute;
   right: 18px;
-  top: 80%;
+  top: 87%;
   transform: translateY(-50%);
   cursor: pointer;
 `;
@@ -92,7 +90,7 @@ export const MainButton = styled.button`
   width: 438px;
   height: 60px;
   left: 64px;
-  top: 382px;
+  top: 476px;
   background-color: var(--btn-icon-bg);
   border-radius: 12px;
   border: none;

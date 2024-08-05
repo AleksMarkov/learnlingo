@@ -1,5 +1,3 @@
-//Login.styled.jsx
-// Login.styled.jsx
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`
@@ -9,8 +7,8 @@ export const TitleContainer = styled.div`
   padding: 0px;
   gap: 20px;
   position: absolute;
-  width: 438px;
-  height: 112px;
+  width: 472px;
+  height: 134px;
   left: 64px;
   top: 64px;
   background-color: var(--primary-bg-color);
@@ -33,22 +31,22 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const InputsContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 18px;
   position: absolute;
-  width: 438px;
-  height: 126px;
+  width: 472px;
+  height: 198px;
+  top: 610px;
   left: 64px;
-  top: 216px;
 
   input {
-    width: 438px;
+    width: 472px;
     height: 54px;
-    padding: 16px 347px 16px 18px;
+    padding: 16px 350px 16px 18px;
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
     font-size: 16px;
@@ -72,27 +70,17 @@ export const InputsContainer = styled.div`
   }
 `;
 
-export const EyeImage = styled.img`
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: 18px;
-  top: 80%;
-  transform: translateY(-50%);
-  cursor: pointer;
-`;
-
 export const MainButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 16px 168px;
+  padding: 16px 215px;
   position: absolute;
-  width: 438px;
+  width: 472px;
   height: 60px;
   left: 64px;
-  top: 382px;
+  top: 848px;
   background-color: var(--btn-icon-bg);
   border-radius: 12px;
   border: none;
