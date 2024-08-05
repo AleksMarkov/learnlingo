@@ -1,6 +1,11 @@
 //Login.jsx
 import React from "react";
-import { TitleContainer, InputsContainer, MainButton } from "./Login.styled";
+import {
+  TitleContainer,
+  InputsContainer,
+  MainButton,
+  EyeImage,
+} from "./Login.styled";
 import Modal from "../Modal/Modal";
 import eyeoff from "../../assets/svg/eye-off.svg";
 
@@ -26,9 +31,7 @@ const Login = ({ closeMenu }) => {
         <InputsContainer>
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          {/* <span className="toggle-password-visibility">👁️</span>{" "} */}
-          <eyeImage src={eyeoff} alt="eye-off" />
-          {/* Замена иконки */}
+          <EyeImage src={eyeoff} alt="eye-off" />
         </InputsContainer>
         <MainButton>Log In</MainButton>
       </Modal>

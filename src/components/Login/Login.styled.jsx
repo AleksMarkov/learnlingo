@@ -1,4 +1,5 @@
 //Login.styled.jsx
+// Login.styled.jsx
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`
@@ -61,15 +62,14 @@ export const InputsContainer = styled.div`
   }
 `;
 
-export const eyeImage = styled.img`
-  width: 28px;
-  height: 28px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
+export const EyeImage = styled.img`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 18px;
+  top: 80%;
+  transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 export const MainButton = styled.button`
