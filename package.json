@@ -8,6 +8,9 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.4.5",
+    "firebase": "^10.12.5",
+    "firebase-admin": "^12.3.0",
     "next-images": "^1.8.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -42,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Цей проект був створений за допомогою [Create React App](https://github.com/facebook/create-react-app). Для знайомства і налаштування додаткових можливостей [звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
