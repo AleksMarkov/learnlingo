@@ -4,22 +4,22 @@ const ThemeStyled = styled.div`
   .theme-selector {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100px;
+    align-items: center;
+    width: 140px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 
     ul {
       list-style-type: none;
-      padding: 0;
-      margin: 0;
+      padding: 10;
+      margin: 10;
     }
 
     li {
-      margin: 5px 0;
-      padding: 5px 10px;
-      border-radius: 4px;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
       transition: transform 0.2s, background-color 0.3s;
 
       &:hover {

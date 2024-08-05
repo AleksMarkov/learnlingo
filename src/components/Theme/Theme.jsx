@@ -22,11 +22,13 @@ const Theme = ({ closeMenu }) => {
   return (
     <>
       <Modal
-        width={120}
-        height={80}
+        width={200}
+        height={240}
         onClose={() => closeMenu(false)}
-        top="20%"
+        top="26%"
         left="52%"
+        border="1px solid var(--text-color)"
+        background=" rgba(0, 0, 0, 0.05)"
       >
         <ThemeStyled>
           <div className="theme-selector">

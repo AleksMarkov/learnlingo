@@ -9,6 +9,7 @@ export const Opacity = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: ${({ $background }) => $background || "rgba(0, 0, 0, 0)"};
   // background-color: rgba(0, 0, 0, 0.05);
   z-index: 9999;
 `;
@@ -21,11 +22,11 @@ export const Modalcont = styled.div`
   justify-content: center;
   align-items: center;
   min-height: ${({ $Height }) => ($Height ? `${$Height}px` : "130px")};
-  border-radius: 8px;
-  border: 1px solid var(--text-color);
-  padding: 12px;
+  border-radius: 30px;
+  border: ${({ $border }) => $border || "none"};
+  padding: 32px;
   color: var(--text-color);
-  background: var(--additional-bg-color);
+  background-color: var(--primary-bg-color);
   z-index: 10000;
   width: ${({ $Width }) =>
     $Width ? `${$Width}px` : "200px"}; // Set default width if not provided
@@ -38,8 +39,8 @@ export const Modalcont = styled.div`
 
 export const ModalClose = styled.button`
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 20px;
+  right: 20px;
   background-color: transparent;
   padding: 0;
 

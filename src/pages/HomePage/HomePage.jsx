@@ -29,6 +29,7 @@ import EmojiBlue from "../../assets/svg/blue.svg";
 import EmojiBrown from "../../assets/svg/brown.svg";
 import EmojiPink from "../../assets/svg/pink.svg";
 import Theme from "components/Theme/Theme";
+import Login from "components/Login/Login";
 import styled from "styled-components";
 
 // Styled SVG Component for Login Icon
@@ -41,6 +42,7 @@ const LoginIcon = styled.svg`
 
 const HomePage = () => {
   const [showTheme, setShowTheme] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const currentTheme = localStorage.getItem("currentTheme");
 
   const loginIconRef = useRef(null);
@@ -102,7 +104,11 @@ const HomePage = () => {
               strokeLinejoin="round"
             />
           </LoginIcon>
-          <NavLinkRegistr href="#">Log in</NavLinkRegistr>
+          <NavLinkRegistr onClick={() => setShowLogin(true)}>
+            {showLogin && <Login closeMenu={() => setShowLogin(false)} />}
+            Log in
+          </NavLinkRegistr>
+
           <RegButton>Registration</RegButton>
         </Registration>
       </Header>

@@ -1,10 +1,18 @@
 //Modal.jsx
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
-import Icon from "../Icon/Icon";
 import { Opacity, Modalcont, ModalClose } from "./Modal.styled";
 
-const Modal = ({ children, width, height, onClose, top, left }) => {
+const Modal = ({
+  children,
+  width,
+  height,
+  onClose,
+  top,
+  left,
+  border,
+  background,
+}) => {
   const modalRoot = document.getElementById("modal-root");
 
   useEffect(() => {
@@ -22,7 +30,6 @@ const Modal = ({ children, width, height, onClose, top, left }) => {
   }, [onClose]);
 
   const handleOutsideClick = (event) => {
-    onClose();
     if (event.target === event.currentTarget) {
       onClose();
       event.stopPropagation();
@@ -34,25 +41,36 @@ const Modal = ({ children, width, height, onClose, top, left }) => {
   };
 
   return createPortal(
-    <Opacity onClick={handleOutsideClick}>
+    <Opacity onClick={handleOutsideClick} $background={background}>
       <Modalcont
         $Width={width}
         $Height={height}
         onClick={(event) => event.stopPropagation()}
         $top={top}
         $left={left}
+        $border={border}
       >
         <ModalClose
           type="button"
           aria-label="Close modal"
           onClick={handleClose}
         >
-          <Icon
-            width={18}
-            height={18}
-            strokeColor={"var(--text-color)"}
-            name={"close"}
-          />
+          {/* Вставка SVG-кода вместо Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 1024 1024"
+          >
+            <path
+              fill="none"
+              stroke="var(--text-color)"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="85.333"
+              d="M768 256 256 768M256 256l512 512"
+            />
+          </svg>
         </ModalClose>
         {children}
       </Modalcont>
