@@ -60,6 +60,7 @@ export const NavLink = styled.a`
 
   &:hover {
     background-color: var(--additional-bg-color);
+    cursor: pointer;
   }
 `;
 
@@ -71,7 +72,8 @@ export const NavLinkRegistr = styled.a`
   margin-right: 8px;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: var(--additional-bg-color);
+    cursor: pointer;
   }
 `;
 
