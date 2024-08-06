@@ -1,7 +1,8 @@
-//TeachersPage.jsx
-import React from "react";
+// TeachersPage.jsx
+import React, { useEffect, useState } from "react";
 import {
   PageContainer,
+  CardsContainer,
   Card,
   CardBlock,
   InfoBlock,
@@ -15,116 +16,193 @@ import {
   Lesson,
   CardFooter,
   Avatar,
+  AvatarImage,
+  GreenDot,
   LevelTag,
+  LoadMoreButton,
 } from "./TeachersPage.styled";
 import HeartOff from "../../assets/svg/heartOff.svg";
-// import HeartOn from "../../assets/svg/heartOn.svg";
 import Star from "../../assets/svg/Star.svg";
 import Book from "../../assets/svg/book-open-01.svg";
+import GreenDotImage from "../../assets/svg/Group 82.svg";
 import HeaderPage from "../HeaderPage/HeaderPage";
-
-const teachersData = [
-  {
-    id: 1,
-    name: "Jane Smith",
-    languages: "German, French",
-    lessonInfo:
-      "Lessons are structured to cover grammar, vocabulary, and practical usage of the language.",
-    conditions:
-      "Welcomes both adult learners and teenagers (13 years and above). Provides personalized study plans.",
-    levels: [
-      "#A1 Beginner",
-      "#A2 Elementary",
-      "#B1 Intermediate",
-      "#B2 Upper-Intermediate",
-    ],
-    rating: 4.8,
-    lessonsDone: 1098,
-    price: 30,
-  },
-  {
-    id: 2,
-    name: "David Johnson",
-    languages: "Mandarin Chinese",
-    lessonInfo:
-      "Lessons focus on developing all four language skills: speaking, listening, reading, and writing.",
-    conditions:
-      "Teaches all age groups, including children, teenagers, and adults. Offers group lessons at discounted rates.",
-    levels: ["#A1 Beginner", "#A2 Elementary", "#B1 Intermediate"],
-    rating: 4.2,
-    lessonsDone: 1203,
-    price: 35,
-  },
-  {
-    id: 3,
-    name: "Sarah Johnson",
-    languages: "English",
-    lessonInfo:
-      "Lessons focus on building conversational skills and grammar knowledge.",
-    conditions:
-      "Teaches adults and teenagers (15 years and above). Flexible lesson timings available.",
-    levels: ["#A1 Beginner", "#A2 Elementary", "#B1 Intermediate"],
-    rating: 4.6,
-    lessonsDone: 1120,
-    price: 28,
-  },
-];
+import Filter from "../../components/Filter/Filter";
+import { fetchTeachers } from "../../api/teachers.js";
 
 const TeachersPage = () => {
+  const [teachers, setTeachers] = useState([]);
+  const [filteredTeachers, setFilteredTeachers] = useState([]);
+  const [languages, setLanguages] = useState([]);
+  const [levels, setLevels] = useState([]);
+  const [prices, setPrices] = useState([]);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [visibleStart, setVisibleStart] = useState(0);
+  const [visibleEnd, setVisibleEnd] = useState(3);
+
+  useEffect(() => {
+    const loadTeachers = async () => {
+      const data = await fetchTeachers();
+      const teachersArray = Object.values(data);
+      setTeachers(teachersArray);
+
+      // Извлечение всех языков и их сортировка
+      const allLanguages = [
+        "All",
+        ...teachersArray
+          .flatMap((teacher) => teacher.languages)
+          .filter((value, index, self) => self.indexOf(value) === index)
+          .sort(),
+      ];
+      setLanguages(allLanguages);
+
+      // Извлечение всех уровней знаний и их сортировка
+      const allLevels = [
+        "All",
+        ...teachersArray
+          .flatMap((teacher) => teacher.levels)
+          .filter((value, index, self) => self.indexOf(value) === index)
+          .sort(),
+      ];
+      setLevels(allLevels);
+
+      // Извлечение всех уникальных цен и их сортировка
+      const allPrices = teachersArray
+        .map((teacher) => teacher.price_per_hour)
+        .filter((value, index, self) => self.indexOf(value) === index)
+        .sort((a, b) => a - b);
+      setPrices(allPrices);
+
+      // Изначально показываем всех учителей
+      setFilteredTeachers(teachersArray);
+    };
+
+    loadTeachers();
+  }, []);
+
+  useEffect(() => {
+    let filtered = teachers;
+
+    if (selectedLanguage && selectedLanguage !== "All") {
+      filtered = filtered.filter((teacher) =>
+        teacher.languages.includes(selectedLanguage)
+      );
+    }
+
+    if (selectedLevel && selectedLevel !== "All") {
+      filtered = filtered.filter((teacher) =>
+        teacher.levels.includes(selectedLevel)
+      );
+    }
+
+    if (selectedPrice) {
+      filtered = filtered.filter(
+        (teacher) => teacher.price_per_hour === selectedPrice
+      );
+    }
+
+    setFilteredTeachers(filtered);
+    setVisibleStart(0);
+    setVisibleEnd(3);
+  }, [selectedLanguage, selectedLevel, selectedPrice, teachers]);
+
+  const handleLoadMore = () => {
+    if (visibleEnd < filteredTeachers.length) {
+      setVisibleEnd(visibleEnd + 3);
+    }
+  };
+
   return (
     <PageContainer>
       <HeaderPage />
-      {teachersData.map((teacher) => (
-        <Card key={teacher.id}>
-          <Avatar />
-          <CardBlock>
-            <InfoBlock>
-              <CardInfo>
-                <CardHeader>
-                  <TeacherName>{teacher.name}</TeacherName>
-                  <BlockHeader>
-                    <img src={Book} width="16" height="16" alt="open book" />
-                    <span>Lessons online</span>
-                    <spanDiv> | </spanDiv>
-                    <span>Lessons done:</span> {teacher.lessonsDone}
-                    <spanDiv> | </spanDiv>
-                    <span>Rating:</span>{" "}
-                    <img src={Star} width="16" height="16" alt="star" />
-                    {teacher.rating}
-                    <spanDiv> | </spanDiv>
-                    <span>Price / 1 hour: </span>{" "}
-                    <spanPrice>{teacher.price}$</spanPrice>
-                    <img
-                      src={HeartOff}
-                      width="26"
-                      height="26"
-                      alt="heart Off"
-                    />
-                  </BlockHeader>
-                </CardHeader>
-                <CardBody>
-                  <Speaks>
-                    <span>Languages Speaks:</span>
-                    <div className="underline-text">{teacher.languages}</div>
-                  </Speaks>
-                  <Lesson>
-                    <span>Lesson Info:</span> {teacher.lessonInfo}
-                  </Lesson>
-                  <Lesson>
-                    <span>Conditions:</span> {teacher.conditions}
-                  </Lesson>
-                </CardBody>
-              </CardInfo>
-              <ReadMore>Read more</ReadMore>
-            </InfoBlock>
-            <CardFooter>
-              {teacher.levels.map((level) => (
-                <LevelTag key={level}>{level}</LevelTag>
-              ))}
-            </CardFooter>
-          </CardBlock>
-        </Card>
-      ))}
+      <Filter
+        languages={languages}
+        levels={levels}
+        prices={prices}
+        selectedLanguage={selectedLanguage}
+        selectedLevel={selectedLevel}
+        selectedPrice={selectedPrice}
+        onSelectLanguage={setSelectedLanguage}
+        onSelectLevel={setSelectedLevel}
+        onSelectPrice={setSelectedPrice}
+      />
+      {filteredTeachers.length === 0 ? (
+        <p style={{ textAlign: "center" }}>
+          There are no teachers in the database that meet the search criteria.
+        </p>
+      ) : (
+        <CardsContainer>
+          {filteredTeachers.slice(visibleStart, visibleEnd).map((teacher) => (
+            <Card key={teacher.id}>
+              <Avatar>
+                <AvatarImage src={teacher.avatar_url} />
+                <GreenDot src={GreenDotImage} alt="green dot" />
+              </Avatar>
+              <CardBlock>
+                <InfoBlock>
+                  <CardInfo>
+                    <CardHeader>
+                      <TeacherName>
+                        {teacher.name} {teacher.surname}
+                      </TeacherName>
+                      <BlockHeader>
+                        <img
+                          src={Book}
+                          width="16"
+                          height="16"
+                          alt="open book"
+                        />
+                        <span>Lessons online</span>
+                        <spanDiv> | </spanDiv>
+                        <span>Lessons done:</span> {teacher.lessons_done}
+                        <spanDiv> | </spanDiv>
+                        <span>Rating:</span>{" "}
+                        <img src={Star} width="16" height="16" alt="star" />
+                        {teacher.rating}
+                        <spanDiv> | </spanDiv>
+                        <span>Price / 1 hour: </span>{" "}
+                        <spanPrice>{teacher.price_per_hour}$</spanPrice>
+                        <img
+                          src={HeartOff}
+                          width="26"
+                          height="26"
+                          alt="heart Off"
+                        />
+                      </BlockHeader>
+                    </CardHeader>
+                    <CardBody>
+                      <Speaks>
+                        <span>Languages Speaks:</span>
+                        <div className="underline-text">
+                          {Array.isArray(teacher.languages)
+                            ? teacher.languages.join(", ")
+                            : teacher.languages}
+                        </div>
+                      </Speaks>
+                      <Lesson>
+                        <span>Lesson Info:</span> {teacher.lesson_info}
+                      </Lesson>
+                      <Lesson>
+                        <span>Conditions:</span> {teacher.conditions}
+                      </Lesson>
+                    </CardBody>
+                  </CardInfo>
+                  <ReadMore>Read more</ReadMore>
+                </InfoBlock>
+                <CardFooter>
+                  {teacher.levels.map((level) => (
+                    <LevelTag key={level}>{level}</LevelTag>
+                  ))}
+                </CardFooter>
+              </CardBlock>
+            </Card>
+          ))}
+        </CardsContainer>
+      )}
+      {visibleEnd < filteredTeachers.length && (
+        <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+      )}
     </PageContainer>
   );
 };

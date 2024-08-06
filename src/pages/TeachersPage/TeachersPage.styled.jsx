@@ -1,3 +1,4 @@
+// TeachersPage.styled.jsx
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
@@ -8,11 +9,18 @@ export const PageContainer = styled.div`
   align-items: center;
 `;
 
+export const CardsContainer = styled.div`
+  width: 1200px;
+  max-height: 714px; /* Ограничиваем высоту для скроллинга */
+  overflow-y: auto; /* Включаем вертикальный скроллинг */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
-  // justify-content: center;
-  // align-items: center;
   width: 1184px;
   height: 222px;
   border-radius: 24px;
@@ -30,7 +38,50 @@ export const Avatar = styled.div`
   border: 3px solid var(--accent-bg-color);
   border-radius: 100px;
   background-color: var(--primary-bg-color);
-  // position: relative;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AvatarImage = styled.div`
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+`;
+
+export const GreenDot = styled.img`
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 19px;
+  left: 85px;
+  border-radius: 50%;
+`;
+
+export const LoadMoreButton = styled.button`
+  all: unset;
+  display: block;
+  width: 183px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--btn-icon-bg);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: #121417;
+  cursor: pointer;
+  &:focus {
+    border-color: var(--btn-hover-bg);
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--btn-hover-bg);
+  }
 `;
 
 export const CardBlock = styled.div`
@@ -89,7 +140,6 @@ export const CardHeader = styled.div`
 `;
 
 export const TeacherName = styled.div`
-  // width: 697px;
   height: 26px;
   display: flex;
   gap: 4px;
@@ -163,18 +213,16 @@ export const Speaks = styled.div`
   text-align: left;
   color: var(--text-color);
 
-  /* Style for the part that should not have underline */
   span {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     color: #8a8a89;
-    text-decoration: none; /* Ensures no underline for span */
+    text-decoration: none;
   }
 
-  /* Default state for other text */
   .underline-text {
-    text-decoration: underline; /* Adds underline to the rest */
+    text-decoration: underline;
   }
 `;
 
@@ -222,9 +270,9 @@ export const LevelTag = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #121417;
-  white-space: nowrap; /* Запрещает перенос текста */
-  overflow: hidden; /* Скрывает переполнение */
-  text-overflow: ellipsis; /* Добавляет многоточие, если текст не помещается */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:focus {
     border-color: var(--btn-hover-bg);
