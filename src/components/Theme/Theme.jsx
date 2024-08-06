@@ -25,9 +25,9 @@ const Theme = ({ closeMenu }) => {
         width={200}
         height={240}
         onClose={() => closeMenu(false)}
-        top="26%"
+        top="36%"
         left="52%"
-        border="1px solid var(--text-color)"
+        border="none"
         background=" rgba(0, 0, 0, 0.05)"
       >
         <ThemeStyled>

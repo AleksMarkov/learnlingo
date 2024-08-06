@@ -33,6 +33,7 @@ import Login from "components/Login/Login";
 import Registration from "components/Registration/Registration";
 import Lesson from "components/Lesson/Lesson";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // Styled SVG Component for Login Icon
 const LoginIcon = styled.svg`
@@ -86,7 +87,9 @@ const HomePage = () => {
             {ShowLesson && <Lesson closeMenu={() => setShowLesson(false)} />}
             Home
           </NavLink>
-          <NavLink href="#">Teachers</NavLink>
+          <Link to="/teachers">
+            <NavLink>Teachers</NavLink>
+          </Link>
           <NavLink onClick={() => setShowTheme(true)}>
             {showTheme && <Theme closeMenu={() => setShowTheme(false)} />}
             Theme

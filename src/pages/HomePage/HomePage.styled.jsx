@@ -2,11 +2,11 @@
 import styled from "styled-components";
 
 export const HomePageContainer = styled.div`
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   align-items: center;
-  // font-family: "Roboto";
   background-color: var(--primary-bg-color);
 `;
 

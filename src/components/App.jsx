@@ -3,16 +3,14 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Loader from "./Loader/Loader";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
-// const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
-// const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
+const TeachersPage = lazy(() => import("../pages/TeachersPage/TeachersPage"));
 document.documentElement.setAttribute("data-theme", "yellow");
 const App = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} /> */}
+        <Route path="/teachers" element={<TeachersPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Suspense>
