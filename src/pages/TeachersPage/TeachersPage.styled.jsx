@@ -274,6 +274,9 @@ export const LevelTag = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
+  background-color: ${({ highlighted }) =>
+    highlighted ? "var(--btn-icon-bg)" : "transparent"};
+
   &:focus {
     border-color: var(--btn-hover-bg);
     cursor: pointer;

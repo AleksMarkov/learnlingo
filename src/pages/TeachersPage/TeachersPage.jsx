@@ -192,7 +192,9 @@ const TeachersPage = () => {
                 </InfoBlock>
                 <CardFooter>
                   {teacher.levels.map((level) => (
-                    <LevelTag key={level}>{level}</LevelTag>
+                    <LevelTag key={level} highlighted={level === selectedLevel}>
+                      {level}
+                    </LevelTag>
                   ))}
                 </CardFooter>
               </CardBlock>
