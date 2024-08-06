@@ -21,6 +21,7 @@ import HeartOff from "../../assets/svg/heartOff.svg";
 // import HeartOn from "../../assets/svg/heartOn.svg";
 import Star from "../../assets/svg/Star.svg";
 import Book from "../../assets/svg/book-open-01.svg";
+import HeaderPage from "../HeaderPage/HeaderPage";
 
 const teachersData = [
   {
@@ -69,55 +70,63 @@ const teachersData = [
   },
 ];
 
-const TeachersPage = () => (
-  <PageContainer>
-    {teachersData.map((teacher) => (
-      <Card key={teacher.id}>
-        <Avatar />
-        <CardBlock>
-          <InfoBlock>
-            <CardInfo>
-              <CardHeader>
-                <TeacherName>{teacher.name}</TeacherName>
-                <BlockHeader>
-                  <img src={Book} width="16" height="16" alt="open book" />
-                  <span>Lessons online</span>
-                  <spanDiv> | </spanDiv>
-                  <span>Lessons done:</span> {teacher.lessonsDone}
-                  <spanDiv> | </spanDiv>
-                  <span>Rating:</span>{" "}
-                  <img src={Star} width="16" height="16" alt="star" />
-                  {teacher.rating}
-                  <spanDiv> | </spanDiv>
-                  <span>Price / 1 hour: </span>{" "}
-                  <spanPrice>{teacher.price}$</spanPrice>
-                  <img src={HeartOff} width="26" height="26" alt="heart Off" />
-                </BlockHeader>
-              </CardHeader>
-              <CardBody>
-                <Speaks>
-                  <span>Languages Speaks:</span>
-                  <div className="underline-text">{teacher.languages}</div>
-                </Speaks>
-                <Lesson>
-                  <span>Lesson Info:</span> {teacher.lessonInfo}
-                </Lesson>
-                <Lesson>
-                  <span>Conditions:</span> {teacher.conditions}
-                </Lesson>
-              </CardBody>
-            </CardInfo>
-            <ReadMore>Read more</ReadMore>
-          </InfoBlock>
-          <CardFooter>
-            {teacher.levels.map((level) => (
-              <LevelTag key={level}>{level}</LevelTag>
-            ))}
-          </CardFooter>
-        </CardBlock>
-      </Card>
-    ))}
-  </PageContainer>
-);
+const TeachersPage = () => {
+  return (
+    <PageContainer>
+      <HeaderPage />
+      {teachersData.map((teacher) => (
+        <Card key={teacher.id}>
+          <Avatar />
+          <CardBlock>
+            <InfoBlock>
+              <CardInfo>
+                <CardHeader>
+                  <TeacherName>{teacher.name}</TeacherName>
+                  <BlockHeader>
+                    <img src={Book} width="16" height="16" alt="open book" />
+                    <span>Lessons online</span>
+                    <spanDiv> | </spanDiv>
+                    <span>Lessons done:</span> {teacher.lessonsDone}
+                    <spanDiv> | </spanDiv>
+                    <span>Rating:</span>{" "}
+                    <img src={Star} width="16" height="16" alt="star" />
+                    {teacher.rating}
+                    <spanDiv> | </spanDiv>
+                    <span>Price / 1 hour: </span>{" "}
+                    <spanPrice>{teacher.price}$</spanPrice>
+                    <img
+                      src={HeartOff}
+                      width="26"
+                      height="26"
+                      alt="heart Off"
+                    />
+                  </BlockHeader>
+                </CardHeader>
+                <CardBody>
+                  <Speaks>
+                    <span>Languages Speaks:</span>
+                    <div className="underline-text">{teacher.languages}</div>
+                  </Speaks>
+                  <Lesson>
+                    <span>Lesson Info:</span> {teacher.lessonInfo}
+                  </Lesson>
+                  <Lesson>
+                    <span>Conditions:</span> {teacher.conditions}
+                  </Lesson>
+                </CardBody>
+              </CardInfo>
+              <ReadMore>Read more</ReadMore>
+            </InfoBlock>
+            <CardFooter>
+              {teacher.levels.map((level) => (
+                <LevelTag key={level}>{level}</LevelTag>
+              ))}
+            </CardFooter>
+          </CardBlock>
+        </Card>
+      ))}
+    </PageContainer>
+  );
+};
 
 export default TeachersPage;
