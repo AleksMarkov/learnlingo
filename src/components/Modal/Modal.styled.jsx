@@ -31,9 +31,9 @@ export const Modalcont = styled.div`
   width: ${({ $Width }) =>
     $Width ? `${$Width}px` : "200px"}; // Set default width if not provided
 
-  @media screen and (max-width: 768px) {
-    width: 90%;
-    height: auto;
+  // @media screen and (max-width: 768px) {
+  //   width: 90%;
+  //   height: auto;
   }
 `;
 

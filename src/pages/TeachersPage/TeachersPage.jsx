@@ -1,5 +1,6 @@
 // TeachersPage.jsx
 import React, { useEffect, useState } from "react";
+import CardModal from "../../components/CardModal/CardModal"; // Импортируем новый модуль
 import {
   PageContainer,
   CardsContainer,
@@ -40,6 +41,7 @@ const TeachersPage = () => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [visibleStart, setVisibleStart] = useState(0);
   const [visibleEnd, setVisibleEnd] = useState(3);
+  const [selectedTeacher, setSelectedTeacher] = useState(null); // Состояние для выбранного учителя
 
   useEffect(() => {
     const loadTeachers = async () => {
@@ -111,6 +113,14 @@ const TeachersPage = () => {
     if (visibleEnd < filteredTeachers.length) {
       setVisibleEnd(visibleEnd + 3);
     }
+  };
+
+  const handleReadMore = (teacher) => {
+    setSelectedTeacher(teacher);
+  };
+
+  const closeModal = () => {
+    setSelectedTeacher(null);
   };
 
   return (
@@ -188,7 +198,9 @@ const TeachersPage = () => {
                       </Lesson>
                     </CardBody>
                   </CardInfo>
-                  <ReadMore>Read more</ReadMore>
+                  <ReadMore onClick={() => handleReadMore(teacher)}>
+                    Read more
+                  </ReadMore>
                 </InfoBlock>
                 <CardFooter>
                   {teacher.levels.map((level) => (
@@ -204,6 +216,13 @@ const TeachersPage = () => {
       )}
       {visibleEnd < filteredTeachers.length && (
         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+      )}
+      {selectedTeacher && (
+        <CardModal
+          teacher={selectedTeacher}
+          onClose={closeModal}
+          selectedLevel={selectedLevel}
+        />
       )}
     </PageContainer>
   );
