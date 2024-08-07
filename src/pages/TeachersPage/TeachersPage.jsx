@@ -1,6 +1,6 @@
 // TeachersPage.jsx
 import React, { useEffect, useState } from "react";
-import CardModal from "../../components/CardModal/CardModal"; // Импортируем новый модуль
+import CardModal from "../../components/CardModal/CardModal";
 import {
   PageContainer,
   CardsContainer,
@@ -21,8 +21,10 @@ import {
   GreenDot,
   LevelTag,
   LoadMoreButton,
+  FavoriteIcon, // Add this new styled component
 } from "./TeachersPage.styled";
 import HeartOff from "../../assets/svg/heartOff.svg";
+import HeartOn from "../../assets/svg/heartOn.svg";
 import Star from "../../assets/svg/Star.svg";
 import Book from "../../assets/svg/book-open-01.svg";
 import GreenDotImage from "../../assets/svg/Group 82.svg";
@@ -41,15 +43,17 @@ const TeachersPage = () => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [visibleStart, setVisibleStart] = useState(0);
   const [visibleEnd, setVisibleEnd] = useState(3);
-  const [selectedTeacher, setSelectedTeacher] = useState(null); // Состояние для выбранного учителя
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
 
   useEffect(() => {
     const loadTeachers = async () => {
       const data = await fetchTeachers();
-      const teachersArray = Object.values(data);
+      const teachersArray = Object.values(data).map((teacher) => ({
+        ...teacher,
+        favorite: false,
+      }));
       setTeachers(teachersArray);
 
-      // Извлечение всех языков и их сортировка
       const allLanguages = [
         "All",
         ...teachersArray
@@ -59,7 +63,6 @@ const TeachersPage = () => {
       ];
       setLanguages(allLanguages);
 
-      // Извлечение всех уровней знаний и их сортировка
       const allLevels = [
         "All",
         ...teachersArray
@@ -69,14 +72,12 @@ const TeachersPage = () => {
       ];
       setLevels(allLevels);
 
-      // Извлечение всех уникальных цен и их сортировка
       const allPrices = teachersArray
         .map((teacher) => teacher.price_per_hour)
         .filter((value, index, self) => self.indexOf(value) === index)
         .sort((a, b) => a - b);
       setPrices(allPrices);
 
-      // Изначально показываем всех учителей
       setFilteredTeachers(teachersArray);
     };
 
@@ -121,6 +122,16 @@ const TeachersPage = () => {
 
   const closeModal = () => {
     setSelectedTeacher(null);
+  };
+
+  const toggleFavorite = (teacherId) => {
+    setTeachers((prevTeachers) =>
+      prevTeachers.map((teacher) =>
+        teacher.id === teacherId
+          ? { ...teacher, favorite: !teacher.favorite }
+          : teacher
+      )
+    );
   };
 
   return (
@@ -173,11 +184,12 @@ const TeachersPage = () => {
                         <spanDiv> | </spanDiv>
                         <span>Price / 1 hour: </span>{" "}
                         <spanPrice>{teacher.price_per_hour}$</spanPrice>
-                        <img
-                          src={HeartOff}
+                        <FavoriteIcon
+                          src={teacher.favorite ? HeartOn : HeartOff}
                           width="26"
                           height="26"
-                          alt="heart Off"
+                          alt="heart"
+                          onClick={() => toggleFavorite(teacher.id)}
                         />
                       </BlockHeader>
                     </CardHeader>

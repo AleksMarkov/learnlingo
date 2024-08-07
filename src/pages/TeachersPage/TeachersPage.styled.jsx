@@ -277,3 +277,10 @@ export const LevelTag = styled.div`
   background-color: ${({ highlighted }) =>
     highlighted ? "var(--btn-icon-bg)" : "transparent"};
 `;
+
+export const FavoriteIcon = styled.img`
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
