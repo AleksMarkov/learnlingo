@@ -1,5 +1,6 @@
 // HomePage.jsx
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import {
   HomePageContainer,
   Content,
@@ -54,13 +55,14 @@ const HomePage = () => {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </SubTitle>
-          <GetButton>Get started</GetButton>
+          <Link to="/teachers">
+            <GetButton>Get started</GetButton>
+          </Link>
         </TitleContent>
         <ImageContainer>
           <img src={getEmojiImage()} alt="Emoji" />
         </ImageContainer>
       </Content>
-
       <StatsContainer>
         <StatBox>
           <StatNumber>32,000 +</StatNumber>

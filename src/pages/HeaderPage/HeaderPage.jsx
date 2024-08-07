@@ -17,18 +17,35 @@ import Logo from "../../assets/svg/ukraine.svg";
 import Theme from "components/Theme/Theme";
 import Login from "components/Login/Login";
 import Registration from "components/Registration/Registration";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const HeaderPage = () => {
   const [showTheme, setShowTheme] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [ShowRegistr, setShowRegistr] = useState(false);
+  const [user, setUser] = useState(null);
   const loginIconRef = useRef(null);
 
   useEffect(() => {
     if (loginIconRef.current) {
       loginIconRef.current.style.stroke = "var(--btn-icon-bg)";
     }
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    });
   }, []);
+
+  const handleLogout = async () => {
+    const auth = getAuth();
+    await signOut(auth);
+    setUser(null);
+  };
 
   return (
     <HeaderContainer>
@@ -67,16 +84,25 @@ const HeaderPage = () => {
             strokeLinejoin="round"
           />
         </LoginIcon>
-        <NavLinkRegistr onClick={() => setShowLogin(true)}>
-          {showLogin && <Login closeMenu={() => setShowLogin(false)} />}
-          Log in
-        </NavLinkRegistr>
-        <RegButton onClick={() => setShowRegistr(true)}>
-          {ShowRegistr && (
-            <Registration closeMenu={() => setShowRegistr(false)} />
-          )}
-          Registration
-        </RegButton>
+        {user ? (
+          <>
+            <NavLinkRegistr onClick={handleLogout}>Log out</NavLinkRegistr>
+            <NavLink>{user.displayName || user.email}</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLinkRegistr onClick={() => setShowLogin(true)}>
+              {showLogin && <Login closeMenu={() => setShowLogin(false)} />}
+              Log in
+            </NavLinkRegistr>
+            <RegButton onClick={() => setShowRegistr(true)}>
+              {ShowRegistr && (
+                <Registration closeMenu={() => setShowRegistr(false)} />
+              )}
+              Registration
+            </RegButton>
+          </>
+        )}
       </Registrat>
     </HeaderContainer>
   );

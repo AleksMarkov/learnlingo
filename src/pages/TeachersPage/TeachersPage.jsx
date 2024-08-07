@@ -106,12 +106,12 @@ const TeachersPage = () => {
 
     setFilteredTeachers(filtered);
     setVisibleStart(0);
-    setVisibleEnd(3);
+    setVisibleEnd(4);
   }, [selectedLanguage, selectedLevel, selectedPrice, teachers]);
 
   const handleLoadMore = () => {
     if (visibleEnd < filteredTeachers.length) {
-      setVisibleEnd(visibleEnd + 3);
+      setVisibleEnd(visibleEnd + 4);
     }
   };
 

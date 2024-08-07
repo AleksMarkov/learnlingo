@@ -3,6 +3,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 
@@ -16,6 +17,11 @@ export const registerUser = async ({ name, email, password }) => {
     email,
     password
   );
+
+  // Update the user's profile with the display name
+  await updateProfile(userCredential.user, {
+    displayName: name,
+  });
 
   // Save user details to the Realtime Database
   await set(ref(db, "users/" + userCredential.user.uid), {
