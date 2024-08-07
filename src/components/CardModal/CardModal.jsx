@@ -1,5 +1,5 @@
 //CardModal.jsx
-import React from "react";
+import React, { useState } from "react";
 import {
   ModalExp,
   ModalCard,
@@ -17,6 +17,7 @@ import {
   ModalAvatarImage,
   ModalGreenDot,
   ModalLevelTag,
+  BookButton,
 } from "./CardModal.styled";
 import HeartOff from "../../assets/svg/heartOff.svg";
 import Star from "../../assets/svg/Star.svg";
@@ -24,8 +25,11 @@ import Book from "../../assets/svg/book-open-01.svg";
 import GreenDotImage from "../../assets/svg/Group 82.svg";
 import Modal from "../Modal/Modal";
 import Review from "../Review/Review";
+import Lesson from "../Lesson/Lesson";
 
 const CardModal = ({ teacher, onClose, selectedLevel }) => {
+  const [isBookShown, setIsBookShown] = useState(false);
+
   return (
     <Modal
       width={1240}
@@ -90,8 +94,18 @@ const CardModal = ({ teacher, onClose, selectedLevel }) => {
               </ModalLevelTag>
             ))}
           </ModalCardFooter>
+          <BookButton onClick={() => setIsBookShown(true)}>
+            Book trial lesson
+          </BookButton>
         </ModalCardBlock>
       </ModalCard>
+      {isBookShown && (
+        <Lesson
+          teacher={teacher}
+          onClose={onClose}
+          selectedLevel={selectedLevel}
+        />
+      )}
     </Modal>
   );
 };

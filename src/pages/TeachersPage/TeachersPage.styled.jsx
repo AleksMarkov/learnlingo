@@ -73,7 +73,7 @@ export const LoadMoreButton = styled.button`
   font-weight: 700;
   line-height: 28px;
   text-align: center;
-  color: #121417;
+  color: var(--text-color);
   cursor: pointer;
   &:focus {
     border-color: var(--btn-hover-bg);

@@ -52,7 +52,7 @@ export const ModalCardBlock = styled.div`
 
 export const ModalInfoBlock = styled.div`
   width: 968px;
-  height: 214px;
+  height: 238px;
   gap: 16px;
   display: flex;
   flex-direction: column;
@@ -238,5 +238,29 @@ export const ModalLevelTag = styled.div`
   }
   &:hover {
     cursor: pointer;
+  }
+`;
+
+export const BookButton = styled.button`
+  all: unset;
+  display: block;
+  // padding: 16px 48px;
+  opacity: 0px;
+  width: 232px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--btn-icon-bg);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: var(--text-color);
+  cursor: pointer;
+  &:focus {
+    border-color: var(--btn-hover-bg);
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--btn-hover-bg);
   }
 `;
