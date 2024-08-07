@@ -30,7 +30,8 @@ const Registration = ({ closeMenu }) => {
 
   const onSubmit = async (data) => {
     try {
-      await registerUser(data);
+      const { token } = await registerUser(data);
+      localStorage.setItem("token", token); // Store the token
       setAlertMessage("User registered successfully");
       setTimeout(() => {
         setAlertMessage("");

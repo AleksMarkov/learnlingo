@@ -23,7 +23,10 @@ export const registerUser = async ({ name, email, password }) => {
     email,
   });
 
-  return userCredential;
+  // Get the ID token
+  const token = await userCredential.user.getIdToken();
+
+  return { userCredential, token };
 };
 
 export const loginUser = async ({ email, password }) => {
@@ -36,5 +39,8 @@ export const loginUser = async ({ email, password }) => {
     password
   );
 
-  return userCredential;
+  // Get the ID token
+  const token = await userCredential.user.getIdToken();
+
+  return { userCredential, token };
 };

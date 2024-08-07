@@ -1,4 +1,4 @@
-//Login.jsx
+// Login.jsx
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -29,7 +29,8 @@ const Login = ({ closeMenu }) => {
 
   const onSubmit = async (data) => {
     try {
-      await loginUser(data);
+      const { token } = await loginUser(data);
+      localStorage.setItem("token", token); // Store the token
       setAlertMessage("User logged in successfully");
       setTimeout(() => {
         setAlertMessage("");
@@ -39,7 +40,7 @@ const Login = ({ closeMenu }) => {
       setAlertMessage("Error logging in: " + error.message);
       setTimeout(() => {
         setAlertMessage("");
-      }, 2000);
+      }, 5000);
     }
   };
 
