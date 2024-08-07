@@ -14,41 +14,15 @@ import {
   LoginIcon,
 } from "./HeaderPage.styled";
 import Logo from "../../assets/svg/ukraine.svg";
-// import EmojiYellow from "../../assets/svg/yellow.svg";
-// import EmojiGreen from "../../assets/svg/green.svg";
-// import EmojiBlue from "../../assets/svg/blue.svg";
-// import EmojiBrown from "../../assets/svg/brown.svg";
-// import EmojiPink from "../../assets/svg/pink.svg";
 import Theme from "components/Theme/Theme";
 import Login from "components/Login/Login";
 import Registration from "components/Registration/Registration";
-// import Lesson from "components/Lesson/Lesson";
 
 const HeaderPage = () => {
   const [showTheme, setShowTheme] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [ShowRegistr, setShowRegistr] = useState(false);
-  // const [ShowLesson, setShowLesson] = useState(false);
-  //   const currentTheme = localStorage.getItem("currentTheme");
-
   const loginIconRef = useRef(null);
-
-  //   const getEmojiImage = () => {
-  //     switch (currentTheme) {
-  //       case "yellow":
-  //         return EmojiYellow;
-  //       case "green":
-  //         return EmojiGreen;
-  //       case "blue":
-  //         return EmojiBlue;
-  //       case "brown":
-  //         return EmojiBrown;
-  //       case "pink":
-  //         return EmojiPink;
-  //       default:
-  //         return EmojiYellow;
-  //     }
-  //   };
 
   useEffect(() => {
     if (loginIconRef.current) {
@@ -64,11 +38,7 @@ const HeaderPage = () => {
       </LogoContainer>
       <Navigation>
         <Link to="/">
-          <NavLink>
-            {/* <NavLink onClick={() => setShowLesson(true)}> */}
-            {/* {ShowLesson && <Lesson closeMenu={() => setShowLesson(false)} />} */}
-            Home
-          </NavLink>
+          <NavLink>Home</NavLink>
         </Link>
         <Link to="/teachers">
           <NavLink>Teachers</NavLink>
@@ -101,7 +71,6 @@ const HeaderPage = () => {
           {showLogin && <Login closeMenu={() => setShowLogin(false)} />}
           Log in
         </NavLinkRegistr>
-
         <RegButton onClick={() => setShowRegistr(true)}>
           {ShowRegistr && (
             <Registration closeMenu={() => setShowRegistr(false)} />

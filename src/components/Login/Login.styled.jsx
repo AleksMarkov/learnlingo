@@ -1,5 +1,4 @@
 //Login.styled.jsx
-// Login.styled.jsx
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`
@@ -48,7 +47,7 @@ export const InputsContainer = styled.div`
   input {
     width: 438px;
     height: 54px;
-    padding: 16px 347px 16px 18px;
+    padding: 16px 18px;
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
     font-size: 16px;
@@ -105,4 +104,27 @@ export const MainButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+`;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-bottom: 10px;
+`;
+
+export const AlertMessage = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--btn-icon-bg);
+  color: var(--text-color);
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 28px; // Triple the original size
+  font-weight: 500;
+  text-align: center;
+  z-index: 20000;
 `;

@@ -41,7 +41,7 @@ export const Avatar = styled.div`
   top: 218px;
   left: 64px;
   gap: 14px;
-  opacity: 0px;
+  opacity: 1; // Ensure it's visible
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -55,6 +55,7 @@ export const AvatarImage = styled.div`
   background-size: cover;
   background-position: center;
 `;
+
 export const YourTeacher = styled.div`
   width: 142px;
   height: 44px;
@@ -82,7 +83,6 @@ export const RadioTitle = styled.div`
   height: 64px;
   display: flex;
   align-items: flex-start;
-  // justify-content: space-between;
   position: absolute;
   top: 302px;
   left: 64px;
@@ -209,4 +209,76 @@ export const MainButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+`;
+
+export const TemporaryMessageContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 1;
+`;
+
+export const TemporaryMessage = styled.div`
+  font-size: 32px; // Double the original size
+  font-weight: 500;
+  text-align: center;
+`;
+
+export const EnlargedAvatar = styled.div`
+  width: 400px; // Double the original width
+  height: 88px; // Double the original height
+  background-color: var(--primary-bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+`;
+
+export const EnlargedAvatarImage = styled.div`
+  width: 88px; // Double the original width
+  height: 88px; // Double the original height
+  border-radius: 50%;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+`;
+
+export const EnlargedYourTeacher = styled.div`
+  width: 284px; // Double the original width
+  height: 88px; // Double the original height
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 32px; // Double the original font size
+  font-weight: 500;
+  line-height: 48px; // Double the original line height
+  text-align: left;
+  color: var(--text-color);
+
+  span {
+    font-size: 24px; // Double the original font size
+    font-weight: 500;
+    line-height: 32px; // Double the original line height
+    text-align: left;
+    color: #8a8a89;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-bottom: 10px;
 `;

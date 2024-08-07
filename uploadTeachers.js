@@ -1,29 +1,30 @@
+//uploadTeahers.js
 require("dotenv").config();
 const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
 
-// Вставьте путь к вашему JSON-файлу
+// Load teachers data from JSON file
 const teachersData = JSON.parse(
   fs.readFileSync(path.join(__dirname, "teachers.json"), "utf8")
 );
 
-// Вставьте путь к вашему сервисному аккаунту
+// Load service account key
 const serviceAccount = require(path.join(
   __dirname,
   process.env.GOOGLE_APPLICATION_CREDENTIALS_PATH
 ));
 
-// Инициализация Firebase Admin SDK
+// Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://learnlingo-e2fb6-default-rtdb.firebaseio.com", // Убедитесь, что это правильный URL базы данных
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
 });
 
 const db = admin.database();
 const ref = db.ref("teachers");
 
-// Функция для загрузки данных
+// Upload data function
 const uploadData = async () => {
   try {
     await ref.set(teachersData);
