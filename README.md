@@ -1,112 +1,102 @@
-# React homework template
+# LearnLingo
 
-Цей проект був створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства
-і налаштування додаткових можливостей
-[звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+LearnLingo is an application designed for a company that offers services of online language teachers. The application allows users to browse through available teachers, filter them based on specific criteria, and manage their favorites.
 
-## Створення репозиторію за шаблоном
+## Table of Contents
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення репозиторію
-свого проєкта. Для цього натисни на кнопку `«Use this template»` і вибери опцію
-`«Create a new repository»`, як показано на зображенні.
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Pages and Features](#pages-and-features)
+- [Technical Specifications](#technical-specifications)
+- [Setup Instructions](#setup-instructions)
+- [Contributions](#contributions)
+- [License](#license)
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Project Overview
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни поле
-його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`«Create repository from template»`.
+LearnLingo provides an easy-to-use platform for students to find and book language lessons with online teachers. The application features three main pages:
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- **Home**: Showcases the company benefits and provides a link to start exploring the application.
+- **Teachers**: Displays a list of available teachers with filtering options.
+- **Favorites**: Private page where users can view their favorite teachers.
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як
-показано на зображенні.
+## Technologies Used
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+- **Frontend**: React, React Router, styled-components
+- **Backend**: Firebase Realtime Database
+- **Form Handling and Validation**: react-hook-form, yup
+- **Authentication**: Firebase Authentication
 
-Проскроливши сторінку до самого кінця, у секції `«Workflow permissions»` вибери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це
-необхідно для автоматизації процесу деплою проєкту.
+## Pages and Features
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+### Home Page
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів і папок
-репозиторію-шаблону. Далі працюй із ним як із будь-яким іншим особистим репозиторієм,
-клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй їх на
-GitHub.
+- Displays a list of company benefits.
+- Provides a link to start working with the application, redirecting to the Teachers page.
+- Styling is implemented based on provided design examples or prototypes.
 
-## Підготовка до роботи
+### Teachers Page
 
-1. Переконайся що на комп'ютері встановлено LTS-версія Node.js.
-   [Завантаж і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проєкту командою `npm install`.
-3. Запусти режим розробки, виконавши команду `npm start`.
-4. Перейди в браузері за адресою [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проєкту.
+- Shows a list of teachers.
+- Allows filtering by:
+  - Language of instruction.
+  - Level of student knowledge.
+  - Price per hour of class.
+- Each teacher card includes:
+  - Name, surname, languages, levels, rating, reviews, price per hour, lessons done, avatar, lesson info, conditions, and experience.
+- Users can:
+  - Load more teacher cards.
+  - Add teachers to favorites (authenticated users only).
+  - View more detailed information about a teacher.
+  - Book a trial lesson through a modal form.
 
-## Деплой
+### Favorites Page
 
-Продакшн версія проєкту буде автоматично проходити лінтинг, збиратися і
-деплоїтися на GitHub Pages, у гілку `gh-pages`, щоразу, коли оновлюється
-гілка `main`. Наприклад, після прямого пушу або прийнятого пул-реквесту. Для цього
-необхідно у файлі `package.json` відредагувати поле `homepage`, замінивши
-`your_username` і `your_repo_name` на свої, і відправити зміни на GitHub.
+- Accessible only to authenticated users.
+- Displays all teachers added to the user's favorites.
+- Similar styling to the Teachers page.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+## Technical Specifications
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн-версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+1. **Authentication**:
 
-![GitHub Pages settings](./assets/repo-settings.png)
+   - Implement registration, login, current user data retrieval, and logout using Firebase Authentication.
+   - Use react-hook-form and yup for form handling and validation.
+   - Close modal windows via a cross button, backdrop click, or Esc key.
 
-### Статус деплоя
+2. **Database**:
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+   - Create a collection of teachers in Firebase Realtime Database with the specified fields.
+   - Populate the collection using `teachers.json`.
 
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, сборки або деплою сталася помилка.
+3. **Teacher Cards**:
 
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і
-у вікні, що випадає, перейти за посиланням `Details`.
+   - Render 4 teacher cards initially, with more loaded on demand.
+   - Handle "heart" button clicks:
+     - Show modal for unauthenticated users.
+     - Add/remove from favorites for authenticated users, using localStorage or Firebase.
 
-![Deployment status](./assets/deploy-status.png)
+4. **Persistent State**:
 
-### Жива сторінка
+   - Maintain the state of favorite teachers across page reloads.
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися
-за адресою, вказаною у відредагованій властивості `homepage`. Наприклад, ось
-посилання на живу версію для цього репозиторію
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
+5. **Detailed View and Booking**:
 
-Якщо відкривається порожня сторінка, переконайся, що у вкладці `Console` немає помилок
-пов'язаних із неправильними шляхами до CSS і JS файлів проєкту (**404**). Швидше 
-за все у тебе неправильне значення властивості `homepage` у файлі `package.json`.
+   - Open a detailed view of the teacher on "Read more" button click.
+   - Open a booking form on "Book trial lesson" button click.
+   - Use react-hook-form and yup for the booking form, with modal handling as specified.
 
-### Маршрутизація
+6. **Favorites Page**:
+   - Display all favorite teachers for authenticated users.
+   - Ensure consistent styling with the Teachers page.
 
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши у пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
+## Setup Instructions
 
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
+1. **Clone the repository**:
+   git clone https://github.com/AleksMarkov/learnlingo.git
+   cd learnlingo
+   **Contributions**:
+   Contributions are welcome! Please feel free to submit a pull request or open an issue.
 
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторія, запускається спеціальний
-   скрипт (GitHub Action) з файла `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується і
-   проходить лінтинг і збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
-   відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
-   скрипта буде вказано в чому проблема.
+**License**:
+This project is licensed under the MIT License.
