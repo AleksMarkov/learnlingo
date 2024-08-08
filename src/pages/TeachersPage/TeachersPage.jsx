@@ -1,5 +1,8 @@
 // TeachersPage.jsx
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { addFavourite, removeFavourite } from "../../redux/favouritesSlice";
 import CardModal from "../../components/CardModal/CardModal";
 import {
   PageContainer,
@@ -21,7 +24,10 @@ import {
   GreenDot,
   LevelTag,
   LoadMoreButton,
-  FavoriteIcon, // Add this new styled component
+  FavoriteIcon,
+  SpanText,
+  SpanDiv,
+  SpanPrice,
 } from "./TeachersPage.styled";
 import HeartOff from "../../assets/svg/heartOff.svg";
 import HeartOn from "../../assets/svg/heartOn.svg";
@@ -31,8 +37,18 @@ import GreenDotImage from "../../assets/svg/Group 82.svg";
 import HeaderPage from "../HeaderPage/HeaderPage";
 import Filter from "../../components/Filter/Filter";
 import { fetchTeachers } from "../../api/teachers.js";
+import "react-toastify/dist/ReactToastify.css";
 
 const TeachersPage = () => {
+  const dispatch = useDispatch();
+  const favouriteTeachers = useSelector(
+    (state) => state.favourites.favouriteTeachers
+  );
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Assuming you have auth state
+
+  // Log the authentication state
+  console.log("Is Authenticated:", isAuthenticated);
+
   const [teachers, setTeachers] = useState([]);
   const [filteredTeachers, setFilteredTeachers] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -48,10 +64,7 @@ const TeachersPage = () => {
   useEffect(() => {
     const loadTeachers = async () => {
       const data = await fetchTeachers();
-      const teachersArray = Object.values(data).map((teacher) => ({
-        ...teacher,
-        favorite: false,
-      }));
+      const teachersArray = Object.values(data);
       setTeachers(teachersArray);
 
       const allLanguages = [
@@ -124,14 +137,20 @@ const TeachersPage = () => {
     setSelectedTeacher(null);
   };
 
-  const toggleFavorite = (teacherId) => {
-    setTeachers((prevTeachers) =>
-      prevTeachers.map((teacher) =>
-        teacher.id === teacherId
-          ? { ...teacher, favorite: !teacher.favorite }
-          : teacher
-      )
-    );
+  const isFavourite = (teacherId) => {
+    return favouriteTeachers.some((teacher) => teacher.id === teacherId);
+  };
+
+  const toggleFavorite = (teacher) => {
+    if (!isAuthenticated) {
+      toast.error("This functionality is available only to authorized users.");
+      return;
+    }
+    if (isFavourite(teacher.id)) {
+      dispatch(removeFavourite(teacher));
+    } else {
+      dispatch(addFavourite(teacher));
+    }
   };
 
   return (
@@ -174,22 +193,23 @@ const TeachersPage = () => {
                           height="16"
                           alt="open book"
                         />
-                        <span>Lessons online</span>
-                        <spanDiv> | </spanDiv>
-                        <span>Lessons done:</span> {teacher.lessons_done}
-                        <spanDiv> | </spanDiv>
-                        <span>Rating:</span>{" "}
+                        <SpanText>Lessons online</SpanText>
+                        <SpanDiv> | </SpanDiv>
+                        <SpanText>Lessons done:</SpanText>{" "}
+                        {teacher.lessons_done}
+                        <SpanDiv> | </SpanDiv>
+                        <SpanText>Rating:</SpanText>{" "}
                         <img src={Star} width="16" height="16" alt="star" />
                         {teacher.rating}
-                        <spanDiv> | </spanDiv>
-                        <span>Price / 1 hour: </span>{" "}
-                        <spanPrice>{teacher.price_per_hour}$</spanPrice>
+                        <SpanDiv> | </SpanDiv>
+                        <SpanText>Price / 1 hour: </SpanText>{" "}
+                        <SpanPrice>{teacher.price_per_hour}$</SpanPrice>
                         <FavoriteIcon
-                          src={teacher.favorite ? HeartOn : HeartOff}
+                          src={isFavourite(teacher.id) ? HeartOn : HeartOff}
                           width="26"
                           height="26"
                           alt="heart"
-                          onClick={() => toggleFavorite(teacher.id)}
+                          onClick={() => toggleFavorite(teacher)}
                         />
                       </BlockHeader>
                     </CardHeader>

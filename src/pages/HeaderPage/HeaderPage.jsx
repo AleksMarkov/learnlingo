@@ -1,6 +1,8 @@
 // HeaderPage.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
 import {
   HeaderContainer,
   LogoContainer,
@@ -18,13 +20,13 @@ import Theme from "components/Theme/Theme";
 import Login from "components/Login/Login";
 import Registration from "components/Registration/Registration";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-
 const HeaderPage = () => {
   const [showTheme, setShowTheme] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [ShowRegistr, setShowRegistr] = useState(false);
   const [user, setUser] = useState(null);
   const loginIconRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (loginIconRef.current) {
@@ -44,6 +46,8 @@ const HeaderPage = () => {
   const handleLogout = async () => {
     const auth = getAuth();
     await signOut(auth);
+    dispatch(logout()); // Dispatch the logout action
+    localStorage.removeItem("token"); // Remove token from local storage
     setUser(null);
   };
 

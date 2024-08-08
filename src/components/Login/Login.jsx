@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../../schemas/loginSchema.js";
 import { loginUser } from "../../api/users.js";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/authSlice";
 import {
   TitleContainer,
   InputsContainer,
@@ -17,6 +19,7 @@ import eyeoff from "../../assets/svg/eye-off.svg";
 import eyeon from "../../assets/svg/eye-on.svg";
 
 const Login = ({ closeMenu }) => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const {
@@ -29,8 +32,9 @@ const Login = ({ closeMenu }) => {
 
   const onSubmit = async (data) => {
     try {
-      const { token } = await loginUser(data);
-      localStorage.setItem("token", token); // Store the token
+      const { userCredential } = await loginUser(data);
+      const { email, displayName } = userCredential.user;
+      dispatch(login({ email, displayName }));
       setAlertMessage("User logged in successfully");
       setTimeout(() => {
         setAlertMessage("");

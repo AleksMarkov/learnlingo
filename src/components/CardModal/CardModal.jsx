@@ -1,5 +1,8 @@
 //CardModal.jsx
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { addFavourite, removeFavourite } from "../../redux/favouritesSlice";
 import {
   ModalExp,
   ModalCard,
@@ -18,17 +21,44 @@ import {
   ModalGreenDot,
   ModalLevelTag,
   BookButton,
+  SpanText,
+  SpanDiv,
+  SpanPrice,
+  FavoriteIcon,
 } from "./CardModal.styled";
 import HeartOff from "../../assets/svg/heartOff.svg";
+import HeartOn from "../../assets/svg/heartOn.svg";
 import Star from "../../assets/svg/Star.svg";
 import Book from "../../assets/svg/book-open-01.svg";
 import GreenDotImage from "../../assets/svg/Group 82.svg";
 import Modal from "../Modal/Modal";
 import Review from "../Review/Review";
 import Lesson from "../Lesson/Lesson";
+import "react-toastify/dist/ReactToastify.css";
 
 const CardModal = ({ teacher, onClose, selectedLevel }) => {
+  const dispatch = useDispatch();
+  const favouriteTeachers = useSelector(
+    (state) => state.favourites.favouriteTeachers
+  );
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Assuming you have auth state
   const [isBookShown, setIsBookShown] = useState(false);
+
+  const isFavourite = (teacherId) => {
+    return favouriteTeachers.some((favTeacher) => favTeacher.id === teacherId);
+  };
+
+  const toggleFavorite = (teacher) => {
+    if (!isAuthenticated) {
+      toast.error("This functionality is available only to authorized users.");
+      return;
+    }
+    if (isFavourite(teacher.id)) {
+      dispatch(removeFavourite(teacher));
+    } else {
+      dispatch(addFavourite(teacher));
+    }
+  };
 
   return (
     <Modal
@@ -54,17 +84,23 @@ const CardModal = ({ teacher, onClose, selectedLevel }) => {
                 </ModalTeacherName>
                 <ModalBlockHeader>
                   <img src={Book} width="16" height="16" alt="open book" />
-                  <span>Lessons online</span>
-                  <spanDiv> | </spanDiv>
-                  <span>Lessons done:</span> {teacher.lessons_done}
-                  <spanDiv> | </spanDiv>
-                  <span>Rating:</span>{" "}
+                  <SpanText>Lessons online</SpanText>
+                  <SpanDiv> | </SpanDiv>
+                  <SpanText>Lessons done:</SpanText> {teacher.lessons_done}
+                  <SpanDiv> | </SpanDiv>
+                  <SpanText>Rating:</SpanText>{" "}
                   <img src={Star} width="16" height="16" alt="star" />
                   {teacher.rating}
-                  <spanDiv> | </spanDiv>
-                  <span>Price / 1 hour: </span>{" "}
-                  <spanPrice>{teacher.price_per_hour}$</spanPrice>
-                  <img src={HeartOff} width="26" height="26" alt="heart Off" />
+                  <SpanDiv> | </SpanDiv>
+                  <SpanText>Price / 1 hour: </SpanText>{" "}
+                  <SpanPrice>{teacher.price_per_hour}$</SpanPrice>
+                  <FavoriteIcon
+                    src={isFavourite(teacher.id) ? HeartOn : HeartOff}
+                    width="26"
+                    height="26"
+                    alt="heart"
+                    onClick={() => toggleFavorite(teacher)}
+                  />
                 </ModalBlockHeader>
               </ModalCardHeader>
               <ModalCardBody>

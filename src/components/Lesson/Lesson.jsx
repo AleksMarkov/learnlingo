@@ -46,7 +46,7 @@ const Lesson = ({ teacher, onClose }) => {
     setTimeout(() => {
       setShowMessage(false);
       onClose();
-    }, 5000);
+    }, 3000);
   };
 
   const leftColumnOptions = [

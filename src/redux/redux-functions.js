@@ -1,8 +1,9 @@
+//redux-functions.js
 export const pending = (state) => {
-    state.isLoading = true;
-}
+  state.isLoading = true;
+};
 
 export const rejected = (state, { payload }) => {
-    state.isLoading = false;
-    state.error = payload;
-}
+  state.isLoading = false;
+  state.error = payload;
+};

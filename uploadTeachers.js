@@ -3,6 +3,7 @@ require("dotenv").config();
 const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
 
 // Load teachers data from JSON file
 const teachersData = JSON.parse(
@@ -24,10 +25,14 @@ admin.initializeApp({
 const db = admin.database();
 const ref = db.ref("teachers");
 
-// Upload data function
+// Add unique IDs to each teacher and upload data function
 const uploadData = async () => {
   try {
-    await ref.set(teachersData);
+    const teachersWithId = teachersData.map((teacher) => ({
+      ...teacher,
+      id: uuidv4(),
+    }));
+    await ref.set(teachersWithId);
     console.log("Data uploaded successfully");
   } catch (error) {
     console.error("Error uploading data:", error);

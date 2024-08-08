@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import registrationSchema from "../../schemas/registrationSchema.js";
 import { registerUser } from "../../api/users.js";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/authSlice";
 import {
   TitleContainer,
   InputContainer,
@@ -19,6 +21,7 @@ import eyeon from "../../assets/svg/eye-on.svg";
 const Registration = ({ closeMenu }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -30,8 +33,17 @@ const Registration = ({ closeMenu }) => {
 
   const onSubmit = async (data) => {
     try {
-      const { token } = await registerUser(data);
+      const { userCredential, token } = await registerUser(data);
       localStorage.setItem("token", token); // Store the token
+
+      // Extract serializable user data
+      const user = {
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+        displayName: userCredential.user.displayName,
+      };
+
+      dispatch(login(user)); // Dispatch login action with serializable user data
       setAlertMessage("User registered successfully");
       setTimeout(() => {
         setAlertMessage("");

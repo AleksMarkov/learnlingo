@@ -166,29 +166,31 @@ export const BlockHeader = styled.div`
   line-height: 24px;
   text-align: left;
   color: var(--text-color);
+`;
 
-  span {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: left;
-    color: var(--text-color);
-  }
-  spanDiv {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: left;
-    color: rgba(18, 20, 23, 0.2);
-  }
-  spanPrice {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: left;
-    color: #38cd3e;
-    margin-right: 58px;
-  }
+export const SpanText = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: var(--text-color);
+`;
+
+export const SpanDiv = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(18, 20, 23, 0.2);
+`;
+
+export const SpanPrice = styled.div`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #38cd3e;
+  margin-right: 58px;
 `;
 
 export const CardBody = styled.div`
