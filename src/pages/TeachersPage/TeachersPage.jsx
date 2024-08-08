@@ -143,7 +143,7 @@ const TeachersPage = () => {
 
   const toggleFavorite = (teacher) => {
     if (!isAuthenticated) {
-      toast.error(" ");
+      toast.error("This functionality is available only to authorized users.");
       return;
     }
     if (isFavourite(teacher.id)) {

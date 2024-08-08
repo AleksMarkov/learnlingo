@@ -1,6 +1,6 @@
 // HeaderPage.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 import {
@@ -28,6 +28,7 @@ const HeaderPage = () => {
   const [user, setUser] = useState(null);
   const loginIconRef = useRef(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     if (loginIconRef.current) {
@@ -50,6 +51,7 @@ const HeaderPage = () => {
     dispatch(logout()); // Dispatch the logout action
     localStorage.removeItem("token"); // Remove token from local storage
     setUser(null);
+    navigate("/"); // Redirect to the home page
   };
 
   return (
