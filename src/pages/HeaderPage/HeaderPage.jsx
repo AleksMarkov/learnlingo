@@ -1,6 +1,6 @@
 // HeaderPage.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 import {
@@ -29,6 +29,7 @@ const HeaderPage = () => {
   const loginIconRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Get the navigate function
+  const location = useLocation(); // Get the current location
 
   useEffect(() => {
     if (loginIconRef.current) {
@@ -62,14 +63,16 @@ const HeaderPage = () => {
       </LogoContainer>
       <Navigation>
         <Link to="/">
-          <NavLink>Home</NavLink>
+          <NavLink active={location.pathname === "/"}>Home</NavLink>
         </Link>
         <Link to="/teachers">
-          <NavLink>Teachers</NavLink>
+          <NavLink active={location.pathname === "/teachers"}>Teachers</NavLink>
         </Link>
         {user && (
           <Link to="/favorites">
-            <NavLink>Favorites</NavLink>
+            <NavLink active={location.pathname === "/favorites"}>
+              Favorites
+            </NavLink>
           </Link>
         )}
         <NavLink onClick={() => setShowTheme(true)}>

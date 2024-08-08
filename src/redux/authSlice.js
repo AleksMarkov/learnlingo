@@ -1,15 +1,16 @@
 // authSlice.js
-// authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+const initialState = {
+  isAuthenticated: false,
+  user: null,
+};
+
 const authSlice = createSlice({
   name: "auth",
-  initialState: {
-    isAuthenticated: false,
-    user: null,
-  },
+  initialState,
   reducers: {
     login: (state, action) => {
       state.isAuthenticated = true;

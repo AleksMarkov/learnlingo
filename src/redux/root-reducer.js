@@ -9,16 +9,15 @@ import authReducer from "./authSlice";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["token", "selectedTheme", "favourites", "auth"],
+  whitelist: ["theme", "favourites", "auth"], // Adjust whitelist to match your state slices
 };
 
-const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
-const persistedAuthReducer = persistReducer(persistConfig, authReducer);
-
 const rootReducer = combineReducers({
-  theme: persistedThemeReducer,
+  theme: themeReducer,
   favourites: favouritesReducer,
-  auth: persistedAuthReducer,
+  auth: authReducer,
 });
 
-export default rootReducer;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export default persistedReducer;

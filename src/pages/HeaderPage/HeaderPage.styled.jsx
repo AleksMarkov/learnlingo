@@ -44,8 +44,14 @@ export const NavLink = styled.a`
   line-height: 20px;
   text-align: left;
   color: var(--text-color);
+  background-color: ${(props) =>
+    props.active ? "var(--btn-icon-bg)" : "transparent"};
+  padding: 8px 16px;
+  border-radius: 8px;
+
   &:hover {
-    background-color: var(--additional-bg-color);
+    background-color: ${(props) =>
+      props.active ? "var(--btn-hover-bg)" : "transparent"};
     cursor: pointer;
   }
 `;

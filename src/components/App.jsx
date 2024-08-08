@@ -17,8 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/teachers" element={<TeachersPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />{" "}
-        {/* Add route */}
+        <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Suspense>
