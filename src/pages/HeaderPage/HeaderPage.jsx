@@ -20,10 +20,11 @@ import Theme from "components/Theme/Theme";
 import Login from "components/Login/Login";
 import Registration from "components/Registration/Registration";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 const HeaderPage = () => {
   const [showTheme, setShowTheme] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [ShowRegistr, setShowRegistr] = useState(false);
+  const [showRegistr, setShowRegistr] = useState(false);
   const [user, setUser] = useState(null);
   const loginIconRef = useRef(null);
   const dispatch = useDispatch();
@@ -64,6 +65,11 @@ const HeaderPage = () => {
         <Link to="/teachers">
           <NavLink>Teachers</NavLink>
         </Link>
+        {user && (
+          <Link to="/favorites">
+            <NavLink>Favorites</NavLink>
+          </Link>
+        )}
         <NavLink onClick={() => setShowTheme(true)}>
           {showTheme && <Theme closeMenu={() => setShowTheme(false)} />}
           Theme
@@ -100,7 +106,7 @@ const HeaderPage = () => {
               Log in
             </NavLinkRegistr>
             <RegButton onClick={() => setShowRegistr(true)}>
-              {ShowRegistr && (
+              {showRegistr && (
                 <Registration closeMenu={() => setShowRegistr(false)} />
               )}
               Registration
