@@ -9,7 +9,7 @@ import authReducer from "./authSlice";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["theme", "favourites", "auth"], // Adjust whitelist to match your state slices
+  whitelist: ["theme", "favourites", "auth"],
 };
 
 const rootReducer = combineReducers({

@@ -123,7 +123,7 @@ export const AlertMessage = styled.div`
   padding: 20px 40px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 28px; // Triple the original size
+  font-size: 28px;
   font-weight: 500;
   text-align: center;
   z-index: 20000;

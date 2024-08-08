@@ -36,9 +36,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const FavoritesCardModal = ({ teacher, onClose, selectedLevel }) => {
   const dispatch = useDispatch();
-  // const favouriteTeachers = useSelector(
-  //   (state) => state.favourites.favouriteTeachers
-  // );
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [isBookShown, setIsBookShown] = useState(false);
 

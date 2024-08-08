@@ -18,8 +18,7 @@ const Review = ({ reviews }) => {
             {review.reviewer_name}
             <ReviewerRating>
               <img src={Star} width="16" height="16" alt="star" />
-              {review.reviewer_rating.toFixed(1)}{" "}
-              {/* Ensuring one decimal place */}
+              {review.reviewer_rating.toFixed(1)}
             </ReviewerRating>
           </ReviewerName>
           <ReviewText>{review.comment}</ReviewText>

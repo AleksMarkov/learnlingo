@@ -41,7 +41,7 @@ export const Avatar = styled.div`
   top: 218px;
   left: 64px;
   gap: 14px;
-  opacity: 1; // Ensure it's visible
+  opacity: 1;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -229,14 +229,14 @@ export const TemporaryMessageContainer = styled.div`
 `;
 
 export const TemporaryMessage = styled.div`
-  font-size: 32px; // Double the original size
+  font-size: 32px;
   font-weight: 500;
   text-align: center;
 `;
 
 export const EnlargedAvatar = styled.div`
-  width: 400px; // Double the original width
-  height: 88px; // Double the original height
+  width: 400px;
+  height: 88px;
   background-color: var(--primary-bg-color);
   display: flex;
   flex-direction: row;
@@ -246,8 +246,8 @@ export const EnlargedAvatar = styled.div`
 `;
 
 export const EnlargedAvatarImage = styled.div`
-  width: 88px; // Double the original width
-  height: 88px; // Double the original height
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background-image: url(${(props) => props.src});
   background-size: cover;
@@ -255,22 +255,22 @@ export const EnlargedAvatarImage = styled.div`
 `;
 
 export const EnlargedYourTeacher = styled.div`
-  width: 284px; // Double the original width
-  height: 88px; // Double the original height
+  width: 284px;
+  height: 88px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  font-size: 32px; // Double the original font size
+  font-size: 32px;
   font-weight: 500;
-  line-height: 48px; // Double the original line height
+  line-height: 48px;
   text-align: left;
   color: var(--text-color);
 
   span {
-    font-size: 24px; // Double the original font size
+    font-size: 24px;
     font-weight: 500;
-    line-height: 32px; // Double the original line height
+    line-height: 32px;
     text-align: left;
     color: #8a8a89;
   }

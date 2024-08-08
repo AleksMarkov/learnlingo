@@ -2,12 +2,12 @@
 import React, { useContext } from "react";
 import ThemeStyled from "./Theme.styled";
 import Modal from "../Modal/Modal";
-import { ThemeContext } from "./ThemeContext"; // Импортируйте ваш контекст
+import { ThemeContext } from "./ThemeContext";
 
 const Theme = ({ closeMenu }) => {
   const themes = ["yellow", "green", "blue", "brown", "pink"];
   const themescolor = ["#fbe9ba", "#cbded3", "#bfd6ea", "#f2c0bd", "#f4c8ba"];
-  const { currentTheme, setCurrentTheme } = useContext(ThemeContext); // Используйте контекст
+  const { currentTheme, setCurrentTheme } = useContext(ThemeContext);
 
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);

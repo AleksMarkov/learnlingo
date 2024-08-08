@@ -34,16 +34,15 @@ const Registration = ({ closeMenu }) => {
   const onSubmit = async (data) => {
     try {
       const { userCredential, token } = await registerUser(data);
-      localStorage.setItem("token", token); // Store the token
+      localStorage.setItem("token", token);
 
-      // Extract serializable user data
       const user = {
         uid: userCredential.user.uid,
         email: userCredential.user.email,
         displayName: userCredential.user.displayName,
       };
 
-      dispatch(login(user)); // Dispatch login action with serializable user data
+      dispatch(login(user));
       setAlertMessage("User registered successfully");
       setTimeout(() => {
         setAlertMessage("");

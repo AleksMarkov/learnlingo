@@ -192,8 +192,8 @@ export const ModalLesson = styled.div`
 
 export const ModalExp = styled.div`
   width: 968px;
-  max-height: 120px; /* Add a max-height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 120px; 
+  overflow-y: auto; 
   display: flex;
   align-items: flex-start;
   font-size: 16px;
@@ -245,7 +245,6 @@ export const ModalLevelTag = styled.div`
 export const BookButton = styled.button`
   all: unset;
   display: block;
-  // padding: 16px 48px;
   opacity: 0px;
   width: 232px;
   height: 60px;

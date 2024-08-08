@@ -28,8 +28,8 @@ const HeaderPage = () => {
   const [user, setUser] = useState(null);
   const loginIconRef = useRef(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Get the navigate function
-  const location = useLocation(); // Get the current location
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (loginIconRef.current) {
@@ -49,10 +49,10 @@ const HeaderPage = () => {
   const handleLogout = async () => {
     const auth = getAuth();
     await signOut(auth);
-    dispatch(logout()); // Dispatch the logout action
-    localStorage.removeItem("token"); // Remove token from local storage
+    dispatch(logout());
+    localStorage.removeItem("token");
     setUser(null);
-    navigate("/"); // Redirect to the home page
+    navigate("/");
   };
 
   return (

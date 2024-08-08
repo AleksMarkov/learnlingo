@@ -24,7 +24,7 @@ const ThemeStyled = styled.div`
 
       &:hover {
         transform: scale(1.05);
-        background-color: lighten(0.1); // Optional lighter hover effect
+        background-color: lighten(0.1);
       }
 
       &.active {

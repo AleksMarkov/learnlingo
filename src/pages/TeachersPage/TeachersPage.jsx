@@ -44,9 +44,8 @@ const TeachersPage = () => {
   const favouriteTeachers = useSelector(
     (state) => state.favourites.favouriteTeachers
   );
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Assuming you have auth state
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  // Log the authentication state
   console.log("Is Authenticated:", isAuthenticated);
 
   const [teachers, setTeachers] = useState([]);

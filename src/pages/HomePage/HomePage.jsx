@@ -20,10 +20,10 @@ import EmojiGreen from "../../assets/svg/green.svg";
 import EmojiBlue from "../../assets/svg/blue.svg";
 import EmojiBrown from "../../assets/svg/brown.svg";
 import EmojiPink from "../../assets/svg/pink.svg";
-import { ThemeContext } from "../../components/Theme/ThemeContext"; // Импортируйте ваш контекст
+import { ThemeContext } from "../../components/Theme/ThemeContext";
 
 const HomePage = () => {
-  const { currentTheme } = useContext(ThemeContext); // Используйте контекст
+  const { currentTheme } = useContext(ThemeContext);
 
   const getEmojiImage = () => {
     switch (currentTheme) {

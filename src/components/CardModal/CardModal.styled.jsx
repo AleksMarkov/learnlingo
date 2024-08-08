@@ -246,7 +246,6 @@ export const ModalLevelTag = styled.div`
 export const BookButton = styled.button`
   all: unset;
   display: block;
-  // padding: 16px 48px;
   opacity: 0px;
   width: 232px;
   height: 60px;

@@ -10,7 +10,6 @@ export const Opacity = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ $background }) => $background || "rgba(0, 0, 0, 0)"};
-  // background-color: rgba(0, 0, 0, 0.05);
   z-index: 9999;
 `;
 
@@ -28,12 +27,8 @@ export const Modalcont = styled.div`
   color: var(--text-color);
   background-color: var(--primary-bg-color);
   z-index: 10000;
-  width: ${({ $Width }) =>
-    $Width ? `${$Width}px` : "200px"}; // Set default width if not provided
+  width: ${({ $Width }) => ($Width ? `${$Width}px` : "200px")};
 
-  // @media screen and (max-width: 768px) {
-  //   width: 90%;
-  //   height: auto;
   }
 `;
 

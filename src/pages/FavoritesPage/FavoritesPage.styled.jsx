@@ -11,8 +11,8 @@ export const PageContainer = styled.div`
 
 export const CardsContainer = styled.div`
   width: 1200px;
-  max-height: 714px; /* Ограничиваем высоту для скроллинга */
-  overflow-y: auto; /* Включаем вертикальный скроллинг */
+  max-height: 714px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

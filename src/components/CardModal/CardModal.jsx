@@ -41,7 +41,7 @@ const CardModal = ({ teacher, onClose, selectedLevel }) => {
   const favouriteTeachers = useSelector(
     (state) => state.favourites.favouriteTeachers
   );
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Assuming you have auth state
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [isBookShown, setIsBookShown] = useState(false);
 
   const isFavourite = (teacherId) => {

@@ -88,12 +88,12 @@ export const DropdownMenu = styled.div`
   top: 48px;
   left: 0;
   width: 100%;
-  max-height: 200px; /* Ограничение высоты */
+  max-height: 200px;
   background-color: var(--primary-bg-color);
   border-radius: 14px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  overflow-y: auto; /* Добавление скроллинга */
+  overflow-y: auto;
 `;
 
 export const DropdownItem = styled.div`
