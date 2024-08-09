@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/learnlingo/static/css/main.3559b742.css",
-    "main.js": "/learnlingo/static/js/main.cef32b7e.js",
-    "static/js/140.a8d2bdf1.chunk.js": "/learnlingo/static/js/140.a8d2bdf1.chunk.js",
-    "static/css/51.b0f22693.chunk.css": "/learnlingo/static/css/51.b0f22693.chunk.css",
-    "static/js/51.d94c04d0.chunk.js": "/learnlingo/static/js/51.d94c04d0.chunk.js",
-    "static/css/170.b0f22693.chunk.css": "/learnlingo/static/css/170.b0f22693.chunk.css",
-    "static/js/170.9c1768a0.chunk.js": "/learnlingo/static/js/170.9c1768a0.chunk.js",
+    "main.js": "/learnlingo/static/js/main.2d3d20f6.js",
+    "static/js/140.9fe97bcd.chunk.js": "/learnlingo/static/js/140.9fe97bcd.chunk.js",
+    "static/css/11.e18f279e.chunk.css": "/learnlingo/static/css/11.e18f279e.chunk.css",
+    "static/js/11.c16685b7.chunk.js": "/learnlingo/static/js/11.c16685b7.chunk.js",
+    "static/css/827.e18f279e.chunk.css": "/learnlingo/static/css/827.e18f279e.chunk.css",
+    "static/js/827.4527dc29.chunk.js": "/learnlingo/static/js/827.4527dc29.chunk.js",
     "static/js/143.aa7d9e23.chunk.js": "/learnlingo/static/js/143.aa7d9e23.chunk.js",
-    "static/js/931.ad5346ee.chunk.js": "/learnlingo/static/js/931.ad5346ee.chunk.js",
-    "static/js/662.35a21fa1.chunk.js": "/learnlingo/static/js/662.35a21fa1.chunk.js",
+    "static/js/931.250f8ddb.chunk.js": "/learnlingo/static/js/931.250f8ddb.chunk.js",
+    "static/js/367.30113898.chunk.js": "/learnlingo/static/js/367.30113898.chunk.js",
     "static/media/blue.svg": "/learnlingo/static/media/blue.b89fe5d9f72fba42902740749c9e27a8.svg",
     "static/media/brown.svg": "/learnlingo/static/media/brown.e6f0ca6da9a0b9eb958e667dca36a0e7.svg",
     "static/media/green.svg": "/learnlingo/static/media/green.f4a438f9ac55f6d816775b07304e7828.svg",
@@ -30,18 +30,18 @@
     "static/media/chevron-down.svg": "/learnlingo/static/media/chevron-down.24cd320d509ea2ebbeb4265f8030bafb.svg",
     "static/media/Group 82.svg": "/learnlingo/static/media/Group 82.f00e07c359d2557f7d174d3800fd00f6.svg",
     "main.3559b742.css.map": "/learnlingo/static/css/main.3559b742.css.map",
-    "main.cef32b7e.js.map": "/learnlingo/static/js/main.cef32b7e.js.map",
-    "140.a8d2bdf1.chunk.js.map": "/learnlingo/static/js/140.a8d2bdf1.chunk.js.map",
-    "51.b0f22693.chunk.css.map": "/learnlingo/static/css/51.b0f22693.chunk.css.map",
-    "51.d94c04d0.chunk.js.map": "/learnlingo/static/js/51.d94c04d0.chunk.js.map",
-    "170.b0f22693.chunk.css.map": "/learnlingo/static/css/170.b0f22693.chunk.css.map",
-    "170.9c1768a0.chunk.js.map": "/learnlingo/static/js/170.9c1768a0.chunk.js.map",
+    "main.2d3d20f6.js.map": "/learnlingo/static/js/main.2d3d20f6.js.map",
+    "140.9fe97bcd.chunk.js.map": "/learnlingo/static/js/140.9fe97bcd.chunk.js.map",
+    "11.e18f279e.chunk.css.map": "/learnlingo/static/css/11.e18f279e.chunk.css.map",
+    "11.c16685b7.chunk.js.map": "/learnlingo/static/js/11.c16685b7.chunk.js.map",
+    "827.e18f279e.chunk.css.map": "/learnlingo/static/css/827.e18f279e.chunk.css.map",
+    "827.4527dc29.chunk.js.map": "/learnlingo/static/js/827.4527dc29.chunk.js.map",
     "143.aa7d9e23.chunk.js.map": "/learnlingo/static/js/143.aa7d9e23.chunk.js.map",
-    "931.ad5346ee.chunk.js.map": "/learnlingo/static/js/931.ad5346ee.chunk.js.map",
-    "662.35a21fa1.chunk.js.map": "/learnlingo/static/js/662.35a21fa1.chunk.js.map"
+    "931.250f8ddb.chunk.js.map": "/learnlingo/static/js/931.250f8ddb.chunk.js.map",
+    "367.30113898.chunk.js.map": "/learnlingo/static/js/367.30113898.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3559b742.css",
-    "static/js/main.cef32b7e.js"
+    "static/js/main.2d3d20f6.js"
   ]
 }
