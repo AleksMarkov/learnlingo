@@ -8,6 +8,11 @@ export const HomePageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: var(--primary-bg-color);
+
+  @media (max-width: 1325px) {
+    font-size: 12px;
+    line-height: 16px;
+  }
 `;
 
 export const Content = styled.div`
@@ -15,6 +20,15 @@ export const Content = styled.div`
   flex-direction: row;
   margin: 20px 64px 24px;
   gap: 24px;
+
+  @media (max-width: 1325px) {
+    margin: 10px 20px 10px;
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const TitleContent = styled.div`
@@ -24,6 +38,15 @@ export const TitleContent = styled.div`
   height: 530px;
   border-radius: 30px;
   background-color: var(--additional-bg-color);
+
+  @media (max-width: 1325px) {
+    width: auto;
+    height: auto;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Title = styled.h1`
@@ -37,6 +60,7 @@ export const Title = styled.h1`
   color: var(--text-color);
   margin-top: 98px;
   margin-left: 64px;
+
   span {
     font-style: italic;
     font-weight: 400;
@@ -45,6 +69,22 @@ export const Title = styled.h1`
     color: var(--text-color);
     background-color: var(--accent-bg-color);
     border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 36px;
+    line-height: 44px;
+    margin-left: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 370px) {
+    font-size: 24px;
+    line-height: 34px;
+    margin-left: 16px;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
   }
 `;
 
@@ -59,6 +99,18 @@ export const SubTitle = styled.p`
   color: var(--text-color);
   margin-top: 32px;
   margin-left: 64px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 16px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 0.7rem;
+    margin-left: 8px;
+    margin-top: 4px;
+  }
 `;
 
 export const GetButton = styled.button`
@@ -78,6 +130,11 @@ export const GetButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+
+  @media (max-width: 768px) {
+    margin-left: 16px;
+    margin-top: 32px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -88,6 +145,20 @@ export const ImageContainer = styled.div`
   height: 530px;
   border-radius: 30px;
   background-color: var(--additional-bg-color);
+
+  @media (max-width: 1325px) {
+    width: auto;
+    height: auto;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 export const StatsContainer = styled.div`
@@ -99,6 +170,17 @@ export const StatsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 30px;
+
+  @media (max-width: 1325px) {
+    width: auto;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const StatBox = styled.div`
@@ -116,6 +198,11 @@ export const StatNumber = styled.div`
   font-weight: 500;
   line-height: 32px;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 `;
 
 export const StatDescription = styled.div`
@@ -124,4 +211,9 @@ export const StatDescription = styled.div`
   line-height: 18px;
   letter-spacing: -0.02em;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 16px;
+  }
 `;

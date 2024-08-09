@@ -30,6 +30,25 @@ export const TitleContainer = styled.div`
     color: rgba(18, 20, 23, 0.8);
     text-align: left;
   }
+
+  @media (max-width: 600px) {
+    justify-content: center;
+    width: 302px;
+    gap: 10px;
+    width: 80%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const Avatar = styled.div`
@@ -45,6 +64,16 @@ export const Avatar = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 600px) {
+    width: 80%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+  }
 `;
 
 export const AvatarImage = styled.div`
@@ -91,6 +120,19 @@ export const RadioTitle = styled.div`
   line-height: 32px;
   text-align: left;
   color: var(--text-color);
+
+  @media (max-width: 600px) {
+    width: 100%;
+    left: 32px;
+    width: 400px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 260px;
+    font-size: 20px;
+  }
 `;
 
 export const RadioBlock = styled.div`
@@ -101,12 +143,38 @@ export const RadioBlock = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    width: 100%;
+    left: 32px;
+    width: 300px;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    flex-direction: column;
+    gap: 8px;
+    top: 320px;
+  }
 `;
 
 export const RadioColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    gap: 16px;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
 `;
 
 export const RadioWrapper = styled.div`
@@ -145,6 +213,15 @@ export const RadioInput = styled.input`
 export const RadioLabel = styled.label`
   font-size: 16px;
   color: var(--text-color);
+
+  @media (max-width: 600px) {
+    width: 60%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -171,6 +248,11 @@ export const InputContainer = styled.div`
     text-align: left;
     color: var(--text-color);
 
+    @media (max-width: 600px) {
+      width: 100%;
+      left: 32px;
+    }
+
     ::placeholder {
       color: var(--text-color);
       font-size: 16px;
@@ -182,6 +264,20 @@ export const InputContainer = styled.div`
     &:focus {
       border-color: var(--btn-hover-bg);
       outline: none;
+    }
+  }
+  @media (max-width: 600px) {
+    width: 80%;
+    left: 32px;
+    top: 560px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 460px;
+    input {
+      width: 100%;
     }
   }
 `;
@@ -209,6 +305,19 @@ export const MainButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 80%;
+    padding: 16px;
+    left: 32px;
+    top: 776px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 706px;
+  }
 `;
 
 export const TemporaryMessageContainer = styled.div`
@@ -226,12 +335,25 @@ export const TemporaryMessageContainer = styled.div`
   align-items: center;
   gap: 20px;
   opacity: 1;
+  @media (max-width: 600px) {
+    width: 80%;
+    padding: 16px 24px;
+    gap: 12px;
+  }
+  @media (max-width: 480px) {
+    padding: 16px 24px;
+    gap: 12px;
+  }
 `;
 
 export const TemporaryMessage = styled.div`
   font-size: 32px;
   font-weight: 500;
   text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 export const EnlargedAvatar = styled.div`
@@ -243,6 +365,11 @@ export const EnlargedAvatar = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 28px;
+
+  @media (max-width: 480px) {
+    width: 90%;
+    gap: 12px;
+  }
 `;
 
 export const EnlargedAvatarImage = styled.div`
@@ -252,6 +379,11 @@ export const EnlargedAvatarImage = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 480px) {
+    width: 64px;
+    height: 64px;
+  }
 `;
 
 export const EnlargedYourTeacher = styled.div`
@@ -274,6 +406,14 @@ export const EnlargedYourTeacher = styled.div`
     text-align: left;
     color: #8a8a89;
   }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 32px;
+    span {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const ErrorMessage = styled.div`
@@ -281,4 +421,8 @@ export const ErrorMessage = styled.div`
   font-size: 14px;
   margin-top: -12px;
   margin-bottom: 10px;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;

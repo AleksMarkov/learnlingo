@@ -1,3 +1,4 @@
+//Modal.styled.jsx
 import styled from "styled-components";
 
 export const Opacity = styled.div`
@@ -29,6 +30,14 @@ export const Modalcont = styled.div`
   z-index: 10000;
   width: ${({ $Width }) => ($Width ? `${$Width}px` : "200px")};
 
+  @media (max-width: 600px) {
+    width: 80%; /* Adjust width for smaller screens */
+    padding: 12px; /* Reduce padding on smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    width: 95%; /* Further adjust for very small screens */
+    padding: 12px; /* Further reduce padding */
   }
 `;
 

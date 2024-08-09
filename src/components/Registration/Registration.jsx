@@ -63,7 +63,7 @@ const Registration = ({ closeMenu }) => {
   return (
     <>
       <Modal
-        width={566}
+        width={598}
         height={600}
         onClose={() => closeMenu(false)}
         top="50%"

@@ -5,7 +5,6 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
   gap: 20px;
   position: absolute;
   width: 472px;
@@ -29,6 +28,22 @@ export const TitleContainer = styled.div`
     line-height: 22px;
     color: rgba(18, 20, 23, 0.8);
     text-align: left;
+  }
+  @media (max-width: 600px) {
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -55,7 +70,9 @@ export const InputContainer = styled.div`
     line-height: 22px;
     text-align: left;
     color: var(--text-color);
-
+    @media (max-width: 600px) {
+      width: 100%;
+    }
     ::placeholder {
       color: var(--text-color);
       font-size: 16px;
@@ -67,6 +84,19 @@ export const InputContainer = styled.div`
     &:focus {
       border-color: var(--btn-hover-bg);
       outline: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 200px;
+    input {
+      width: 100%;
     }
   }
 `;
@@ -103,6 +133,17 @@ export const MainButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 80%;
+    padding: 16px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 400px;
+  }
 `;
 
 export const ErrorMessage = styled.div`
@@ -126,4 +167,13 @@ export const AlertMessage = styled.div`
   font-weight: 500;
   text-align: center;
   z-index: 20000;
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    padding: 16px 24px;
+  }
 `;

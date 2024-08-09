@@ -8,8 +8,20 @@ export const FilterContainer = styled.div`
   padding: 0px;
   margin-bottom: 14px;
   gap: 20px;
-  width: 1184px;
-  height: 74px;
+  width: 100%;
+  max-width: 1184px;
+  height: auto; /* Make height auto for flexibility */
+
+  @media (max-width: 1253px) {
+    width: 100%; /* Ensure full width on smaller screens */
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    gap: 12px;
+  }
 `;
 
 export const FilterSection = styled.div`
@@ -17,6 +29,11 @@ export const FilterSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ensure full width on smaller screens */
+    align-items: center; /* Center content */
+  }
 `;
 
 export const FilterLabel = styled.div`
@@ -26,6 +43,12 @@ export const FilterLabel = styled.div`
   font-size: 14px;
   line-height: 18px;
   color: #8a8a89;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center; /* Center text */
+  }
 `;
 
 export const FilterLanguagesWrapper = styled.div`
@@ -39,6 +62,11 @@ export const FilterLanguagesWrapper = styled.div`
   border-radius: 14px;
   padding: 16px 18px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ensure full width on smaller screens */
+    padding: 12px 16px; /* Adjust padding for smaller screens */
+  }
 `;
 
 export const FilterLevelWrapper = styled.div`
@@ -52,6 +80,11 @@ export const FilterLevelWrapper = styled.div`
   border-radius: 14px;
   padding: 16px 18px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ensure full width on smaller screens */
+    padding: 12px 16px; /* Adjust padding for smaller screens */
+  }
 `;
 
 export const FilterPriceWrapper = styled.div`
@@ -65,6 +98,11 @@ export const FilterPriceWrapper = styled.div`
   border-radius: 14px;
   padding: 16px 18px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ensure full width on smaller screens */
+    padding: 12px 16px; /* Adjust padding for smaller screens */
+  }
 `;
 
 export const FilterInput = styled.div`
@@ -73,6 +111,12 @@ export const FilterInput = styled.div`
   font-size: 18px;
   line-height: 20px;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center; /* Center text */
+  }
 `;
 
 export const DropdownIcon = styled.img`
@@ -81,6 +125,11 @@ export const DropdownIcon = styled.img`
   height: 20px;
   right: 18px;
   top: calc(50% - 10px);
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const DropdownMenu = styled.div`
@@ -94,6 +143,10 @@ export const DropdownMenu = styled.div`
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    top: 40px; /* Adjust dropdown position for smaller screens */
+  }
 `;
 
 export const DropdownItem = styled.div`
@@ -108,5 +161,11 @@ export const DropdownItem = styled.div`
   &:hover {
     color: var(--text-color);
     background-color: var(--additional-bg-color);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 4px 16px; /* Adjust padding for smaller screens */
   }
 `;

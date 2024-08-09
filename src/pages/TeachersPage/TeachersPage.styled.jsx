@@ -7,21 +7,36 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 16px; /* Ensure content doesn't touch the edges */
+
+  @media (max-width: 1253px) {
+    width: 100%; /* Ensure the page container takes full width */
+    padding: 0 8px;
+  }
 `;
 
 export const CardsContainer = styled.div`
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   max-height: 714px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 1253px) {
+    width: 100%;
+    margin-left: 5px;
+    padding-left: 5px;
+    max-width: 100%; /* Take full width on smaller screens */
+  }
 `;
 
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
-  width: 1184px;
+  width: 100%;
+  max-width: 1184px;
   height: auto;
   border-radius: 24px;
   padding: 16px;
@@ -30,6 +45,18 @@ export const Card = styled.div`
   margin-bottom: 16px;
   color: var(--text-color);
   background-color: var(--primary-bg-color);
+
+  @media (max-width: 1253px) {
+    flex-direction: column;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+  }
 `;
 
 export const Avatar = styled.div`
@@ -42,6 +69,11 @@ export const Avatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1253px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const AvatarImage = styled.div`
@@ -51,6 +83,11 @@ export const AvatarImage = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 1253px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 export const GreenDot = styled.img`
@@ -85,8 +122,7 @@ export const LoadMoreButton = styled.button`
 `;
 
 export const CardBlock = styled.div`
-  width: 984px;
-  height: auto;
+  width: 100%;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -94,7 +130,7 @@ export const CardBlock = styled.div`
 `;
 
 export const InfoBlock = styled.div`
-  width: 984px;
+  width: 100%;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -102,7 +138,7 @@ export const InfoBlock = styled.div`
 `;
 
 export const CardInfo = styled.div`
-  width: 984px;
+  width: 100%;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -126,15 +162,25 @@ export const ReadMore = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const CardHeader = styled.div`
-  width: 984px;
-  height: 26px;
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const TeacherName = styled.div`
@@ -149,11 +195,16 @@ export const TeacherName = styled.div`
   line-height: 24px;
   text-align: left;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 22px;
+  }
 `;
 
 export const BlockHeader = styled.div`
-  width: 697px;
-  height: 26px;
+  width: 100%;
+  height: auto;
   display: flex;
   gap: 8px;
   flex-direction: row;
@@ -164,6 +215,13 @@ export const BlockHeader = styled.div`
   line-height: 24px;
   text-align: left;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const SpanText = styled.div`
@@ -172,6 +230,11 @@ export const SpanText = styled.div`
   line-height: 24px;
   text-align: left;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const SpanDiv = styled.div`
@@ -180,6 +243,11 @@ export const SpanDiv = styled.div`
   line-height: 24px;
   text-align: left;
   color: rgba(18, 20, 23, 0.2);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const SpanPrice = styled.div`
@@ -189,10 +257,16 @@ export const SpanPrice = styled.div`
   text-align: left;
   color: #38cd3e;
   margin-right: 58px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 16px;
+  }
 `;
 
 export const CardBody = styled.div`
-  width: 984px;
+  width: 100%;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -200,7 +274,7 @@ export const CardBody = styled.div`
 `;
 
 export const ExpandedCardBody = styled.div`
-  width: 984px;
+  width: 100%;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -208,7 +282,7 @@ export const ExpandedCardBody = styled.div`
 `;
 
 export const ModalLesson = styled.div`
-  width: 968px;
+  width: 100%;
   display: flex;
   gap: 4px;
   flex-direction: row;
@@ -219,17 +293,27 @@ export const ModalLesson = styled.div`
   text-align: left;
   color: var(--text-color);
 
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   span {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     text-align: left;
     color: #8a8a89;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 `;
 
 export const ModalExp = styled.div`
-  width: 968px;
+  width: 100%;
   max-height: 120px; /* Add a max-height */
   overflow-y: auto; /* Enable vertical scrolling */
   display: flex;
@@ -239,10 +323,15 @@ export const ModalExp = styled.div`
   line-height: 24px;
   text-align: left;
   color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const ModalCardFooter = styled.div`
-  width: 968px;
+  width: 100%;
   height: 32px;
   gap: 8px;
   display: flex;
@@ -266,6 +355,11 @@ export const ModalLevelTag = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 
   background-color: ${({ highlighted }) =>
     highlighted ? "var(--btn-icon-bg)" : "transparent"};
@@ -294,7 +388,7 @@ export const BookButton = styled.button`
 `;
 
 export const Speaks = styled.div`
-  width: 984px;
+  width: 100%;
   display: flex;
   gap: 4px;
   flex-direction: row;
@@ -305,12 +399,22 @@ export const Speaks = styled.div`
   text-align: left;
   color: var(--text-color);
 
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   span {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     color: #8a8a89;
     text-decoration: none;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   .underline-text {
@@ -319,7 +423,7 @@ export const Speaks = styled.div`
 `;
 
 export const Lesson = styled.div`
-  width: 984px;
+  width: 100%;
   display: flex;
   gap: 4px;
   flex-direction: row;
@@ -330,17 +434,27 @@ export const Lesson = styled.div`
   text-align: left;
   color: var(--text-color);
 
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   span {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     text-align: left;
     color: #8a8a89;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 `;
 
 export const CardFooter = styled.div`
-  width: 984px;
+  width: 100%;
   height: 32px;
   gap: 8px;
   display: flex;
@@ -364,6 +478,11 @@ export const LevelTag = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 
   background-color: ${({ highlighted }) =>
     highlighted ? "var(--btn-icon-bg)" : "transparent"};

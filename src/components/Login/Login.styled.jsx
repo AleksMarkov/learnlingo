@@ -30,6 +30,23 @@ export const TitleContainer = styled.div`
     color: rgba(18, 20, 23, 0.8);
     text-align: left;
   }
+  @media (max-width: 600px) {
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%; /* Adjust width for smaller screens */
+    left: 5%; /* Center the container */
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const InputsContainer = styled.div`
@@ -56,6 +73,11 @@ export const InputsContainer = styled.div`
     text-align: left;
     color: var(--text-color);
 
+    @media (max-width: 600px) {
+      width: 100%;
+      left: 32px;
+    }
+
     ::placeholder {
       color: var(--text-color);
       font-size: 16px;
@@ -67,6 +89,20 @@ export const InputsContainer = styled.div`
     &:focus {
       border-color: var(--btn-hover-bg);
       outline: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 80%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    top: 180px;
+    input {
+      width: 100%;
     }
   }
 `;
@@ -104,6 +140,18 @@ export const MainButton = styled.button`
   &:hover {
     background-color: var(--btn-hover-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 80%;
+    padding: 16px;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    left: 5%;
+    padding: 16px;
+  }
 `;
 
 export const ErrorMessage = styled.div`
@@ -127,4 +175,14 @@ export const AlertMessage = styled.div`
   font-weight: 500;
   text-align: center;
   z-index: 20000;
+
+  @media (max-width: 600px) {
+    width: 80%;
+    left: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    padding: 16px 24px;
+  }
 `;
