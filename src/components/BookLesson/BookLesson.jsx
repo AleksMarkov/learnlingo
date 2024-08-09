@@ -1,4 +1,4 @@
-//Lesson.jsx
+//BookLesson.jsx
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,10 +22,10 @@ import {
   EnlargedAvatarImage,
   EnlargedYourTeacher,
   ErrorMessage,
-} from "./Lesson.styled";
-import Modal from "../Modal/Modal";
+} from "./BookLesson.styled.jsx";
+import Modal from "../Modal/Modal.jsx";
 
-const Lesson = ({ teacher, onClose }) => {
+const BookLesson = ({ teacher, onClose }) => {
   const [selectedOption, setSelectedOption] = useState("Career and business");
   const [showMessage, setShowMessage] = useState(false);
 
@@ -157,4 +157,4 @@ const Lesson = ({ teacher, onClose }) => {
   );
 };
 
-export default Lesson;
+export default BookLesson;

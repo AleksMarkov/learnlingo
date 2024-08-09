@@ -9,11 +9,11 @@ export const fetchTeachers = async () => {
     if (snapshot.exists()) {
       return snapshot.val();
     } else {
-      console.log("No data available");
+      // console.log("No data available");
       return [];
     }
   } catch (error) {
-    console.error("Error fetching data:", error);
+    // console.error("Error fetching data:", error);
     return [];
   }
 };

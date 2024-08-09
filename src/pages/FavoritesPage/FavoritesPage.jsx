@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { removeFavourite } from "../../redux/favouritesSlice";
-import FavoritesCardModal from "../../components/FavoritesCardModal/FavoritesCardModal";
 import {
   PageContainer,
   CardsContainer,
@@ -28,6 +27,12 @@ import {
   SpanText,
   SpanDiv,
   SpanPrice,
+  ExpandedCardBody,
+  ModalLesson,
+  ModalExp,
+  ModalCardFooter,
+  ModalLevelTag,
+  BookButton,
 } from "./FavoritesPage.styled";
 import HeartOn from "../../assets/svg/heartOn.svg";
 import Star from "../../assets/svg/Star.svg";
@@ -35,6 +40,8 @@ import Book from "../../assets/svg/book-open-01.svg";
 import GreenDotImage from "../../assets/svg/Group 82.svg";
 import HeaderPage from "../HeaderPage/HeaderPage";
 import Filter from "../../components/Filter/Filter";
+import Review from "../../components/Review/Review";
+import BookLesson from "../../components/BookLesson/BookLesson";
 import "react-toastify/dist/ReactToastify.css";
 
 const FavoritesPage = () => {
@@ -43,6 +50,7 @@ const FavoritesPage = () => {
     (state) => state.favourites.favouriteTeachers
   );
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const [isBookShown, setIsBookShown] = useState(false);
 
   const [filteredTeachers, setFilteredTeachers] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -53,7 +61,7 @@ const FavoritesPage = () => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [visibleStart, setVisibleStart] = useState(0);
   const [visibleEnd, setVisibleEnd] = useState(3);
-  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [expandedTeacherId, setExpandedTeacherId] = useState(null);
 
   useEffect(() => {
     const favoriteTeachersArray = Object.values(favouriteTeachers);
@@ -116,12 +124,8 @@ const FavoritesPage = () => {
     }
   };
 
-  const handleReadMore = (teacher) => {
-    setSelectedTeacher(teacher);
-  };
-
-  const closeModal = () => {
-    setSelectedTeacher(null);
+  const handleReadMore = (teacherId) => {
+    setExpandedTeacherId(teacherId === expandedTeacherId ? null : teacherId);
   };
 
   const toggleFavorite = (teacher) => {
@@ -204,22 +208,54 @@ const FavoritesPage = () => {
                       <Lesson>
                         <span>Lesson Info:</span> {teacher.lesson_info}
                       </Lesson>
-                      <Lesson>
-                        <span>Conditions:</span> {teacher.conditions}
-                      </Lesson>
+                      {expandedTeacherId === teacher.id && (
+                        <ExpandedCardBody>
+                          <ModalLesson>
+                            <span>Conditions:</span> {teacher.conditions}
+                          </ModalLesson>
+                          <ModalExp>{teacher.experience}</ModalExp>
+                          <Review reviews={teacher.reviews} />
+                          <ModalCardFooter>
+                            {teacher.levels.map((level) => (
+                              <ModalLevelTag
+                                key={level}
+                                highlighted={level === selectedLevel}
+                              >
+                                {level}
+                              </ModalLevelTag>
+                            ))}
+                          </ModalCardFooter>
+                          <BookButton onClick={() => setIsBookShown(true)}>
+                            Book trial lesson
+                          </BookButton>
+                          {isBookShown && (
+                            <BookLesson
+                              teacher={teacher}
+                              onClose={() => setIsBookShown(false)}
+                            />
+                          )}
+                        </ExpandedCardBody>
+                      )}
                     </CardBody>
                   </CardInfo>
-                  <ReadMore onClick={() => handleReadMore(teacher)}>
-                    Read more
+                  {expandedTeacherId !== teacher.id && (
+                    <CardFooter>
+                      {teacher.levels.map((level) => (
+                        <LevelTag
+                          key={level}
+                          highlighted={level === selectedLevel}
+                        >
+                          {level}
+                        </LevelTag>
+                      ))}
+                    </CardFooter>
+                  )}
+                  <ReadMore onClick={() => handleReadMore(teacher.id)}>
+                    {expandedTeacherId === teacher.id
+                      ? "Read less"
+                      : "Read more"}
                   </ReadMore>
                 </InfoBlock>
-                <CardFooter>
-                  {teacher.levels.map((level) => (
-                    <LevelTag key={level} highlighted={level === selectedLevel}>
-                      {level}
-                    </LevelTag>
-                  ))}
-                </CardFooter>
               </CardBlock>
             </Card>
           ))}
@@ -227,13 +263,6 @@ const FavoritesPage = () => {
       )}
       {visibleEnd < filteredTeachers.length && (
         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
-      )}
-      {selectedTeacher && (
-        <FavoritesCardModal
-          teacher={selectedTeacher}
-          onClose={closeModal}
-          selectedLevel={selectedLevel}
-        />
       )}
     </PageContainer>
   );

@@ -29,9 +29,9 @@ const uploadData = async () => {
       id: uuidv4(),
     }));
     await ref.set(teachersWithId);
-    console.log("Data uploaded successfully");
+    // console.log("Data uploaded successfully");
   } catch (error) {
-    console.error("Error uploading data:", error);
+    // console.error("Error uploading data:", error);
   } finally {
     process.exit();
   }

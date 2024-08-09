@@ -31,7 +31,7 @@ import Book from "../../assets/svg/book-open-01.svg";
 import GreenDotImage from "../../assets/svg/Group 82.svg";
 import Modal from "../Modal/Modal";
 import Review from "../Review/Review";
-import Lesson from "../Lesson/Lesson";
+import Lesson from "../BookLesson/BookLesson";
 import "react-toastify/dist/ReactToastify.css";
 
 const FavoritesCardModal = ({ teacher, onClose, selectedLevel }) => {

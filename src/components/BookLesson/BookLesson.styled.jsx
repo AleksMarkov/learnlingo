@@ -1,4 +1,4 @@
-//Lesson.styled.jsx
+//BookLesson.styled.jsx
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`

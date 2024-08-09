@@ -22,7 +22,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: row;
   width: 1184px;
-  height: 222px;
+  height: auto;
   border-radius: 24px;
   padding: 16px;
   border: none;
@@ -86,7 +86,7 @@ export const LoadMoreButton = styled.button`
 
 export const CardBlock = styled.div`
   width: 984px;
-  height: 190px;
+  height: auto;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,6 @@ export const CardBlock = styled.div`
 
 export const InfoBlock = styled.div`
   width: 984px;
-  height: 150px;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -104,7 +103,6 @@ export const InfoBlock = styled.div`
 
 export const CardInfo = styled.div`
   width: 984px;
-  height: 118px;
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -195,16 +193,108 @@ export const SpanPrice = styled.div`
 
 export const CardBody = styled.div`
   width: 984px;
-  height: 88px;
   gap: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
+export const ExpandedCardBody = styled.div`
+  width: 984px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const ModalLesson = styled.div`
+  width: 968px;
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: var(--text-color);
+
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #8a8a89;
+  }
+`;
+
+export const ModalExp = styled.div`
+  width: 968px;
+  max-height: 120px; /* Add a max-height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: var(--text-color);
+`;
+
+export const ModalCardFooter = styled.div`
+  width: 968px;
+  height: 32px;
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ModalLevelTag = styled.div`
+  height: 32px;
+  gap: 4px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  border-radius: 35px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #121417;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  background-color: ${({ highlighted }) =>
+    highlighted ? "var(--btn-icon-bg)" : "transparent"};
+`;
+
+export const BookButton = styled.button`
+  all: unset;
+  display: block;
+  width: 232px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--btn-icon-bg);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: var(--text-color);
+  cursor: pointer;
+  &:focus {
+    border-color: var(--btn-hover-bg);
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--btn-hover-bg);
+  }
+`;
+
 export const Speaks = styled.div`
   width: 984px;
-  height: 24px;
   display: flex;
   gap: 4px;
   flex-direction: row;
@@ -230,7 +320,6 @@ export const Speaks = styled.div`
 
 export const Lesson = styled.div`
   width: 984px;
-  height: 24px;
   display: flex;
   gap: 4px;
   flex-direction: row;

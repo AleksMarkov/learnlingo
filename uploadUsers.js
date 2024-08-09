@@ -24,9 +24,9 @@ const ref = db.ref("users");
 const uploadData = async () => {
   try {
     await ref.set(usersData);
-    console.log(
-      "Data users.json uploaded successfully to users Firebase Realtime Database"
-    );
+    // console.log(
+    //   "Data users.json uploaded successfully to users Firebase Realtime Database"
+    // );
   } catch (error) {
     console.error("Error uploading data:", error);
   } finally {
