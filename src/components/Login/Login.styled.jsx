@@ -38,9 +38,8 @@ export const TitleContainer = styled.div`
   }
 
   @media (max-width: 480px) {
-    width: 90%; /* Adjust width for smaller screens */
-    left: 5%; /* Center the container */
-    h2 {
+    width: 90%;
+    left: 5%;
       font-size: 32px;
     }
     p {

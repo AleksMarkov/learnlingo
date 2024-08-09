@@ -7,10 +7,9 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px; /* Ensure content doesn't touch the edges */
-
+  padding: 0 16px;
   @media (max-width: 1253px) {
-    width: 100%; /* Ensure the page container takes full width */
+    width: 100%;
     padding: 0 8px;
   }
 `;
@@ -28,7 +27,7 @@ export const CardsContainer = styled.div`
     width: 100%;
     margin-left: 5px;
     padding-left: 5px;
-    max-width: 100%; /* Take full width on smaller screens */
+    max-width: 100%;
   }
 `;
 
@@ -314,8 +313,8 @@ export const ModalLesson = styled.div`
 
 export const ModalExp = styled.div`
   width: 100%;
-  max-height: 120px; /* Add a max-height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 120px;
+  overflow-y: auto;
   display: flex;
   align-items: flex-start;
   font-size: 16px;

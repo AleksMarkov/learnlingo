@@ -10,15 +10,15 @@ export const FilterContainer = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1184px;
-  height: auto; /* Make height auto for flexibility */
+  height: auto;
 
   @media (max-width: 1253px) {
-    width: 100%; /* Ensure full width on smaller screens */
+    width: 100%;
     gap: 16px;
   }
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     align-items: center;
     gap: 12px;
   }
@@ -31,8 +31,8 @@ export const FilterSection = styled.div`
   gap: 8px;
 
   @media (max-width: 768px) {
-    width: 100%; /* Ensure full width on smaller screens */
-    align-items: center; /* Center content */
+    width: 100%;
+    align-items: center;
   }
 `;
 
@@ -47,7 +47,7 @@ export const FilterLabel = styled.div`
   @media (max-width: 768px) {
     font-size: 12px;
     line-height: 16px;
-    text-align: center; /* Center text */
+    text-align: center;
   }
 `;
 
@@ -64,8 +64,8 @@ export const FilterLanguagesWrapper = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    width: 100%; /* Ensure full width on smaller screens */
-    padding: 12px 16px; /* Adjust padding for smaller screens */
+    width: 100%;
+    padding: 12px 16px;
   }
 `;
 
@@ -82,9 +82,8 @@ export const FilterLevelWrapper = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    width: 100%; /* Ensure full width on smaller screens */
-    padding: 12px 16px; /* Adjust padding for smaller screens */
-  }
+    width: 100%;
+    padding: 12px 16px; 
 `;
 
 export const FilterPriceWrapper = styled.div`
@@ -100,8 +99,8 @@ export const FilterPriceWrapper = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    width: 100%; /* Ensure full width on smaller screens */
-    padding: 12px 16px; /* Adjust padding for smaller screens */
+    width: 100%;
+    padding: 12px 16px;
   }
 `;
 
@@ -115,7 +114,7 @@ export const FilterInput = styled.div`
   @media (max-width: 768px) {
     font-size: 16px;
     line-height: 18px;
-    text-align: center; /* Center text */
+    text-align: center;
   }
 `;
 
@@ -145,7 +144,7 @@ export const DropdownMenu = styled.div`
   overflow-y: auto;
 
   @media (max-width: 768px) {
-    top: 40px; /* Adjust dropdown position for smaller screens */
+    top: 40px;
   }
 `;
 
@@ -166,6 +165,6 @@ export const DropdownItem = styled.div`
   @media (max-width: 768px) {
     font-size: 16px;
     line-height: 18px;
-    padding: 4px 16px; /* Adjust padding for smaller screens */
+    padding: 4px 16px;
   }
 `;

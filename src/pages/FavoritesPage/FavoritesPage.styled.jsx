@@ -7,10 +7,10 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px; /* Added padding to prevent content from touching edges */
+  padding: 0 16px;
 
   @media (max-width: 1253px) {
-    width: 100%; /* Ensure full width on smaller screens */
+    width: 100%;
     padding: 0 8px;
   }
 `;
@@ -25,7 +25,7 @@ export const CardsContainer = styled.div`
   align-items: center;
 
   @media (max-width: 1253px) {
-    width: 100%; /* Take full width on smaller screens */
+    width: 100%;
     padding-left: 5px;
   }
 `;

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  margin: 20px 5%; /* Проценты для резиновой адаптивности */
+  margin: 20px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,6 @@ export const HeaderContainer = styled.header`
   }
   @media (max-width: 480px) {
     flex-direction: column;
-    // justify-content: space-between;
     width: auto;
     height: auto;
   }

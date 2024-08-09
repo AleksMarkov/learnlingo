@@ -31,13 +31,13 @@ export const Modalcont = styled.div`
   width: ${({ $Width }) => ($Width ? `${$Width}px` : "200px")};
 
   @media (max-width: 600px) {
-    width: 80%; /* Adjust width for smaller screens */
-    padding: 12px; /* Reduce padding on smaller screens */
+    width: 80%;
+    padding: 12px;
   }
 
   @media (max-width: 480px) {
-    width: 95%; /* Further adjust for very small screens */
-    padding: 12px; /* Further reduce padding */
+    width: 95%;
+    padding: 12px;
   }
 `;
 
