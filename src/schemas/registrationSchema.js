@@ -1,4 +1,4 @@
-// validationSchema.js
+// schemas/registrationSchema.js
 import * as yup from "yup";
 
 const registrationSchema = yup.object().shape({
